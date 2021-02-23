@@ -1,0 +1,62 @@
+Started GET "/" for 127.0.0.1 at 2021-02-23 14:36:52 +0900
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kaito/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kaito/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/railties-6.1.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.9ms | Allocations: 445)
+Completed 200 OK in 47ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 3599)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-23 14:41:13 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 216)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kaito/workspace/app/public/packs
+[Webpacker] asset js/vendors-node_modules_core-js_modules_es_aggregate-error_js-node_modules_core-js_modules_es_ar-0a93cf-c5ce1b45d93e45e5580f.js 581 KiB [emitted] [immutable] (id hint: vendors) 1 related asset
+asset js/application-6079e9f04e4666fb468d.js 83.3 KiB [emitted] [immutable] (name: application) 1 related asset
+asset js/runtime-b6cf9973be6e0d86bce0.js 7.24 KiB [emitted] [immutable] (name: runtime) 1 related asset
+asset manifest.json 1.21 KiB [emitted]
+Entrypoint application 672 KiB (482 KiB) = js/runtime-b6cf9973be6e0d86bce0.js 7.24 KiB js/vendors-node_modules_core-js_modules_es_aggregate-error_js-node_modules_core-js_modules_es_ar-0a93cf-c5ce1b45d93e45e5580f.js 581 KiB js/application-6079e9f04e4666fb468d.js 83.3 KiB 3 auxiliary assets
+runtime modules 3.75 KiB 6 modules
+modules by path ./node_modules/core-js/modules/*.js 210 KiB 195 modules
+modules by path ./node_modules/core-js/internals/*.js 145 KiB 159 modules
+./app/packs/entrypoints/application.js 9.4 KiB [built] [code generated]
+./node_modules/regenerator-runtime/runtime.js 24 KiB [built] [code generated]
+webpack 5.24.0 compiled successfully in 1370 ms
+
+  Rendered layout layouts/application.html.erb (Duration: 3224.4ms | Allocations: 16956)
+Completed 200 OK in 3235ms (Views: 3227.4ms | ActiveRecord: 0.0ms | Allocations: 19486)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-23 14:51:20 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 216)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 5756)
+Completed 200 OK in 21ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 8345)
+
+
+Started GET "/article" for 127.0.0.1 at 2021-02-23 14:51:25 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/article"):
+  
+Started GET "/welcome/index" for 127.0.0.1 at 2021-02-23 14:51:42 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 36)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 3661)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 4117)
+
+
+Started GET "/articles" for 127.0.0.1 at 2021-02-23 14:52:03 +0900
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
