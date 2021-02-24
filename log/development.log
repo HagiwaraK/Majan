@@ -60,3 +60,1142 @@ Started GET "/articles" for 127.0.0.1 at 2021-02-23 14:52:03 +0900
 ActionController::RoutingError (uninitialized constant ArticlesController
 Did you mean?  AbstractController):
   
+Started GET "/" for 127.0.0.1 at 2021-02-24 20:24:11 +0900
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 220)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 5752)
+Completed 200 OK in 36ms (Views: 27.5ms | ActiveRecord: 0.0ms | Allocations: 8340)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 20:25:02 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3750)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 4839)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 20:26:37 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3763)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4851)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 20:59:28 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 26.4ms | Allocations: 6676)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 6741)
+Completed 500 Internal Server Error in 30ms (Allocations: 7812)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `member' for #<ActionView::Base:0x00000000008b60>
+Did you mean?  membber):
+     5:  <%= form_with model: @hoge do |f| %>
+     6: 
+     7:      # 以下の一行がプルダウンを実装するためのコード（追記部分）
+     8:      <%= f.select :faculty, member, include_blank: "選択して下さい" %>
+     9: 
+    10:      <%= f.submit '送信'%>
+    11:   <% end %>
+  
+app/views/welcome/index.html.erb:8
+app/views/welcome/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2021-02-24 20:59:44 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1673)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 5352)
+Completed 200 OK in 18ms (Views: 17.5ms | Allocations: 6536)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:01:11 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 2103)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2168)
+Completed 500 Internal Server Error in 4ms (Allocations: 3233)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+     6: 
+     7: <%= form_with model: @hoge do |f| %>
+     8: 
+     9:      <%= f.select :faculty, @member, include_blank: "選択して下さい" %>
+    10: 
+    11:   <% end %>
+  
+app/views/welcome/index.html.erb:9
+app/views/welcome/index.html.erb:7
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:03:53 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 4241)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4305)
+Completed 500 Internal Server Error in 7ms (Allocations: 5364)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x00000000009560>):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5: 
+    6: <%= f.select :faculty, @member, include_blank: "選択して下さい" %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:05:40 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 4222)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4286)
+Completed 500 Internal Server Error in 7ms (Allocations: 5345)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x000000000099c0>):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5: 
+    6: <%= f.select :faculty, @member, include_blank: "選択して下さい" %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:08:52 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1464)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1528)
+Completed 500 Internal Server Error in 5ms (Allocations: 2592)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x00007fe3f2dcd8a8>::Welcome):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5:  	
+    6: <%= select_tag "web_programming_books", grouped_options_for_select(Welcome::member) %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:09:23 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2623)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2688)
+Completed 500 Internal Server Error in 7ms (Allocations: 3753)
+
+
+  
+ActionView::Template::Error (undefined method `member' for WelcomeController:Class):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5:  	
+    6: <%= select_tag "web_programming_books", grouped_options_for_select(WelcomeController::member) %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:10:02 +0900
+  
+TypeError (no implicit conversion of String into Integer):
+  
+app/controllers/welcome_controller.rb:2:in `[]'
+app/controllers/welcome_controller.rb:2:in `<class:WelcomeController>'
+app/controllers/welcome_controller.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:12:25 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 4041)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 4105)
+Completed 500 Internal Server Error in 10ms (Allocations: 5169)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActiveRecord::Bas
+Did you mean?  ActiveRecord::Base):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5:  	
+    6: <%= select_tag "web_programming_books", grouped_options_for_select(Welcome::member) %>
+  
+app/models/Welcome.rb:1:in `<main>'
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:12:51 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1153)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1217)
+Completed 500 Internal Server Error in 3ms (Allocations: 1682)
+
+
+  
+ActionView::Template::Error (no implicit conversion of String into Integer):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5:  	
+    6: <%= select_tag "web_programming_books", grouped_options_for_select(Welcome::member) %>
+  
+app/models/Welcome.rb:2:in `[]'
+app/models/Welcome.rb:2:in `<class:Welcome>'
+app/models/Welcome.rb:1:in `<main>'
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:13:23 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1116)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1180)
+Completed 500 Internal Server Error in 3ms (Allocations: 1645)
+
+
+  
+ActionView::Template::Error (no implicit conversion of String into Integer):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5:  	
+    6: <%= select_tag "web_programming_books", grouped_options_for_select(Welcome::member) %>
+  
+app/models/Welcome.rb:2:in `[]'
+app/models/Welcome.rb:2:in `<class:Welcome>'
+app/models/Welcome.rb:1:in `<main>'
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:17:13 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1117)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | Allocations: 1182)
+Completed 500 Internal Server Error in 4ms (Allocations: 2247)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check membber=['name1', 'name2']
+
+<h1>Hello, Rails!</h1>
+<input type='button', value='test' >
+
+<%= form_with model: @post, url: posts_path, do |form| %>
+  <%= form.select :user_id, [['太郎', 1], ['二郎', 2]], { include_blank: true, selected: 1 }, { id: "user_id", class: "user_class" } %>
+<% end %>
+
+):
+1:    membber=['name1', 'name2']
+2:    
+3:    <h1>Hello, Rails!</h1>
+4:    <input type='button', value='test' >
+5:    
+6:    <%= form_with model: @post, url: posts_path, do |form| %>
+7:      <%= form.select :user_id, [['太郎', 1], ['二郎', 2]], { include_blank: true, selected: 1 }, { id: "user_id", class: "user_class" } %>
+8:    <% end %>
+  
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:17:40 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1122)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1187)
+Completed 500 Internal Server Error in 2ms (Allocations: 1535)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check membber=['name1', 'name2']
+
+<h1>Hello, Rails!</h1>
+<input type='button', value='test' >
+
+<%= form_with model: @post, url: posts_path, do |form| %>
+  <%= form.select :user_id, [['太郎', 1], ['二郎', 2]], { include_blank: true, selected: 1 }, { id: "user_id", class: "user_class" } %>
+<% end %>
+
+):
+1:    membber=['name1', 'name2']
+2:    
+3:    <h1>Hello, Rails!</h1>
+4:    <input type='button', value='test' >
+5:    
+6:    <%= form_with model: @post, url: posts_path, do |form| %>
+7:      <%= form.select :user_id, [['太郎', 1], ['二郎', 2]], { include_blank: true, selected: 1 }, { id: "user_id", class: "user_class" } %>
+8:    <% end %>
+  
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+app/views/welcome/index.html.erb:6: syntax error, unexpected `do' for block
+app/views/welcome/index.html.erb:10: syntax error, unexpected `end', expecting end-of-input
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:18:32 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 115)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3774)
+Completed 200 OK in 17ms (Views: 16.5ms | Allocations: 4862)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:23:52 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 4230)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4294)
+Completed 500 Internal Server Error in 13ms (Allocations: 5348)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x00000000011be8>):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5: 
+    6: <%= f.select :members, member, class: 'btn' %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:24:49 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 4245)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4309)
+Completed 500 Internal Server Error in 9ms (Allocations: 5368)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<ActionView::Base:0x00000000012048>
+Did you mean?  super):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5: 
+    6: <%= form_with(model: user, local: true) do |f| %>
+    7:   <div class="form-group">
+    8:     <%= f.label :sex, '性別' %>
+    9:     <%= f.select :sex, {'男性': 1, '女性': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:25:17 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 5730)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 5794)
+Completed 500 Internal Server Error in 19ms (Allocations: 6853)
+
+
+  
+ActionView::Template::Error (undefined method `welcomes_path' for #<ActionView::Base:0x000000000124a8>
+Did you mean?  welcome_index_path):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5: 
+    6: <%= form_with(model: Welcome, local: true) do |f| %>
+    7:   <div class="form-group">
+    8:     <%= f.label :sex, '性別' %>
+    9:     <%= f.select :sex, {'男性': 1, '女性': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:30:09 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1423)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4982)
+Completed 200 OK in 10ms (Views: 9.5ms | Allocations: 6069)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:30:31 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3361)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3425)
+Completed 500 Internal Server Error in 11ms (Allocations: 4479)
+
+
+  
+ActionView::Template::Error (undefined method `welcomes_path' for #<ActionView::Base:0x00000000012a98>
+Did you mean?  welcome_index_path):
+    3: <h1>Hello, Rails!</h1>
+    4: <input type='button', value='test' >
+    5: 
+    6: <%= form_with model: Welcome do |f| %>
+    7: 
+    8:     # 以下の一行がプルダウンを実装するためのコード（追記部分）
+    9:     <%= f.select :faculty, [["理工学部", "理工学部"], ["経済学部", "経済学部"], ["法学部", "法学部"], ["医学部", "医学部"]], include_blank: "選択して下さい" %>
+  
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:30:43 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1038)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 4596)
+Completed 200 OK in 9ms (Views: 8.2ms | Allocations: 5684)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:31:04 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2656)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2720)
+Completed 500 Internal Server Error in 5ms (Allocations: 3774)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+     7: 
+     8:     # 以下の一行がプルダウンを実装するためのコード（追記部分）
+     9:     <%= f.select :faculty, [["理工学部", "理工学部"], ["経済学部", "経済学部"], ["法学部", "法学部"], ["医学部", "医学部"]], include_blank: "選択して下さい" %>
+    10:     <%= f.select :faculty, @member, include_blank: "選択して下さい" %>
+    11: 
+    12:     <%= f.submit '送信'%>
+    13: <% end %>
+  
+app/views/welcome/index.html.erb:10
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:31:25 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2663)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2727)
+Completed 500 Internal Server Error in 5ms (Allocations: 3786)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+     7: 
+     8:     # 以下の一行がプルダウンを実装するためのコード（追記部分）
+     9:     <%= f.select :faculty, [["理工学部", "理工学部"], ["経済学部", "経済学部"], ["法学部", "法学部"], ["医学部", "医学部"]], include_blank: "選択して下さい" %>
+    10:     <%= f.select :faculty, @member, include_blank: "選択して下さい" %>
+    11: 
+    12:     <%= f.submit '送信'%>
+    13: <% end %>
+  
+app/views/welcome/index.html.erb:10
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:32:03 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2113)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2177)
+Completed 500 Internal Server Error in 5ms (Allocations: 3236)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+     6: <%= form_with model: @Welcome do |f| %>
+     7: 
+     8:     # 以下の一行がプルダウンを実装するためのコード（追記部分）
+     9:     <%= f.select :faculty, @member, include_blank: "選択して下さい" %>
+    10: 
+    11:     <%= f.submit '送信'%>
+    12: <% end %>
+  
+app/views/welcome/index.html.erb:9
+app/views/welcome/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:36:34 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1047)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4605)
+Completed 200 OK in 11ms (Views: 9.9ms | Allocations: 5693)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:37:37 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1735)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 5278)
+Completed 200 OK in 12ms (Views: 11.1ms | Allocations: 6361)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:40:15 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1740)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 5283)
+Completed 200 OK in 12ms (Views: 10.8ms | Allocations: 6366)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:40:16 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1530)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4910)
+Completed 200 OK in 7ms (Views: 6.7ms | Allocations: 5288)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:40:58 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1744)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5288)
+Completed 200 OK in 10ms (Views: 9.1ms | Allocations: 6376)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:44:49 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 4251)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4315)
+Completed 500 Internal Server Error in 9ms (Allocations: 5370)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `record' for #<ActionView::Base:0x000000000141b8>):
+    2: 
+    3: <h1>麻雀</h1>
+    4: 
+    5: <% record.sheet.each do |sheet| %>
+    6:     <% next if sheet.blank? %>
+    7:     sheet
+    8:     <%= form_with model: @Welcome do |f| %>
+  
+app/views/welcome/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:45:00 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1663)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1727)
+Completed 500 Internal Server Error in 5ms (Allocations: 2786)
+
+
+  
+ActionView::Template::Error (undefined method `sheet' for nil:NilClass):
+    2: 
+    3: <h1>麻雀</h1>
+    4: 
+    5: <% @record.sheet.each do |sheet| %>
+    6:     <% next if sheet.blank? %>
+    7:     sheet
+    8:     <%= form_with model: @Welcome do |f| %>
+  
+app/views/welcome/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:46:45 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1677)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1741)
+Completed 500 Internal Server Error in 5ms (Allocations: 2800)
+
+
+  
+ActionView::Template::Error (undefined method `sheet' for nil:NilClass):
+    2: 
+    3: <h1>麻雀</h1>
+    4: 
+    5: <% @record.sheet.each do |sheet| %>
+    6:     <% next if sheet.blank? %>
+    7:     <%= sheet %>
+    8:     <%= form_with model: @Welcome do |f| %>
+  
+app/views/welcome/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:47:23 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 3136)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 6689)
+Completed 200 OK in 13ms (Views: 11.4ms | Allocations: 7777)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:48:40 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 3133)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 6676)
+Completed 200 OK in 20ms (Views: 19.2ms | Allocations: 7759)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:49:01 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1199)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 1264)
+Completed 500 Internal Server Error in 10ms (Allocations: 2319)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% sheets=['東', '南', '西', '北']%>
+
+<h1>麻雀</h1>
+
+<% sheets.each do |sheet| %>
+    <% next if sheet.blank? %>
+    <%= sheet %>
+    <%= form_with do |f| %>
+        <%= f.select, [['萩原', '萩原'], ['松田', '松田'], ['加藤', '加藤'], ['川岸', '川岸'], ['山下', '山下']], include_blank: "選択して下さい" %>
+    <% end %>  
+<% end %>
+
+):
+1:    <% sheets=['東', '南', '西', '北']%>
+2:    
+3:    <h1>麻雀</h1>
+4:    
+5:    <% sheets.each do |sheet| %>
+6:        <% next if sheet.blank? %>
+7:        <%= sheet %>
+8:        <%= form_with do |f| %>
+9:            <%= f.select, [['萩原', '萩原'], ['松田', '松田'], ['加藤', '加藤'], ['川岸', '川岸'], ['山下', '山下']], include_blank: "選択して下さい" %>
+10:        <% end %>  
+11:    <% end %>
+  
+app/views/welcome/index.html.erb:9: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/welcome/index.html.erb:9: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/welcome/index.html.erb:9: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/welcome/index.html.erb:9: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/welcome/index.html.erb:9: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+app/views/welcome/index.html.erb:9: syntax error, unexpected ',', expecting '.' or &. or :: or '['
+Started GET "/" for 127.0.0.1 at 2021-02-24 21:49:30 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 3134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 6687)
+Completed 200 OK in 13ms (Views: 11.6ms | Allocations: 7775)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-24 22:00:51 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 3556)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 7109)
+Completed 200 OK in 11ms (Views: 10.3ms | Allocations: 8203)
+
+
+Started GET "/start/master" for 127.0.0.1 at 2021-02-24 22:00:53 +0900
+Processing by StartController#master as HTML
+Completed 406 Not Acceptable in 6ms (Allocations: 1806)
+
+
+  
+ActionController::MissingExactTemplate (StartController#master is missing a template for request formats: text/html):
+  
+actionpack (6.1.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.3) lib/action_text/engine.rb:55:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/start/master" for 127.0.0.1 at 2021-02-24 22:01:57 +0900
+Processing by StartController#master as HTML
+Completed 406 Not Acceptable in 1ms (Allocations: 636)
+
+
+  
+ActionController::MissingExactTemplate (StartController#master is missing a template for request formats: text/html):
+  
+actionpack (6.1.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.3) lib/action_text/engine.rb:55:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2021-02-24 22:06:33 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3868)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 9289)
+Completed 200 OK in 39ms (Views: 27.0ms | ActiveRecord: 0.0ms | Allocations: 11940)
+
+
+Started GET "/start/master" for 127.0.0.1 at 2021-02-24 22:06:36 +0900
+Processing by StartController#master as HTML
+Completed 406 Not Acceptable in 4ms (ActiveRecord: 0.0ms | Allocations: 1817)
+
+
+  
+ActionController::MissingExactTemplate (StartController#master is missing a template for request formats: text/html):
+  
+actionpack (6.1.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.3) lib/action_text/engine.rb:55:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/start/master" for 127.0.0.1 at 2021-02-24 22:08:00 +0900
+Processing by StartController#master as HTML
+Completed 406 Not Acceptable in 1ms (Allocations: 652)
+
+
+  
+ActionController::MissingExactTemplate (StartController#master is missing a template for request formats: text/html):
+  
+actionpack (6.1.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.3) lib/action_text/engine.rb:55:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2021-02-24 22:08:05 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 3407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 6906)
+Completed 200 OK in 10ms (Views: 9.3ms | Allocations: 7452)
+
+
+Started GET "/start/master" for 127.0.0.1 at 2021-02-24 22:08:07 +0900
+Processing by StartController#master as HTML
+Completed 406 Not Acceptable in 1ms (Allocations: 641)
+
+
+  
+ActionController::MissingExactTemplate (StartController#master is missing a template for request formats: text/html):
+  
+actionpack (6.1.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.1.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.3) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.3) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.3) lib/action_text/engine.rb:55:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.3) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.3) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.3) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.3) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.3) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.3) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.3) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.3) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2021-02-24 22:09:43 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 3550)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 7103)
+Completed 200 OK in 12ms (Views: 10.6ms | Allocations: 8200)
+
+
+Started GET "/start/master" for 127.0.0.1 at 2021-02-24 22:09:45 +0900
+Processing by StartController#master as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering start/master.html.erb within layouts/application
+  Rendered start/master.html.erb within layouts/application (Duration: 0.4ms | Allocations: 101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3535)
+Completed 200 OK in 12ms (Views: 10.7ms | Allocations: 4409)
+
+
