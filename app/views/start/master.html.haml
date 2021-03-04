@@ -1,31 +1,134 @@
--width = 1000;
--hight = 1000;
-
 :css
-  .subbox {
-    width: 300px;
-    height: 300px;
-    margin: 60px auto 0;
-    border-radius: 4px;
-    border: 1px #ddd solid;
-    background-color: red;
+  .main {
+    width: 1000px;
+    height: 1000px;
+    margin: 0px auto 0;
+    text-align: center;
+    font-size: 0;
+    /background-color: blue;
   }
 
-  .mainbox {
-    width: 300px;
+  .sub1 {
+    width: 800px;
+    height: 100px;
+    margin: 0px auto 0;
+    /background-color: red;
+  }
+
+  .sub2 {
+    display: inline-block;
+    width: 100px;
     height: 600px;
-    margin: 60px auto 0;
-    border-radius: 4px;
-    border: 1px #ddd solid;
+    margin: 0px;
+    /background-color: red;
+  }
+
+  .center {
+    display: inline-block;
+    width: 600px;
+    height: 600px;
+    margin: 15px;
     background-color: green;
   }
+  
+  .user1 {
+    font-size: 0;
+    width: 610px;
+    height: 100px;
+    margin: 0px auto 0;
+    /background-color: blue;
+    box-sizing: content-box;
+    border: medium solid #ff00ff;
+  }
 
+  .name1 {
+    font-size: 24pt;
+    width: 600px;
+    height: 50px;
+    margin: 0px;
+  }
+
+  .point1 {
+    display: inline-block;
+    font-size: 24pt;
+    width: 400px;
+    height: 50px;
+    margin: 0px;
+    box-sizing: content-box;
+    border-top: medium solid #ff00ff;
+  }
+
+  .chip1 {
+    display: inline-block;
+    font-size: 24pt;
+    width: 200px;
+    height: 50px;
+    margin: 0px;
+    box-sizing: content-box;
+    border-top: medium solid #ff00ff;
+    border-left: medium solid #ff00ff;
+  }
+
+  .user2 {
+    font-size: 0;
+    width: 110px;
+    height: 600px;
+    margin: 0px auto 0;
+    /background-color: blue;
+    box-sizing: content-box;
+    border: medium solid #ff00ff;
+  }
+
+  .name2 {
+    display: inline-block;
+    font-size: 24pt;
+    width: 50px;
+    height: 600px;
+    margin: 0px;
+  }
+
+  .point2 {
+    display: inline-block;
+    font-size: 24pt;
+    width: 50px;
+    height: 400px;
+    margin: 0px;
+    box-sizing: content-box;
+    border-right: medium solid #ff00ff;
+  }
+
+  .chip2 {
+    display: inline-block;
+    font-size: 24pt;
+    width: 50px;
+    height: 200px;
+    margin: 0px;
+    box-sizing: content-box;
+    border-right: medium solid #ff00ff;
+  }
 
 %h1 対局画面
 
-/.subbox
-%div{:style=>"width:#{width}px;height:1000px;background-color:blue;"}
-
-.mainbox
-  .subbox
-  /.subbox{:style=>"width:#{width}px"}
+.main
+  .sub1
+    .user1 
+      .name1
+        name1
+      .point1
+        2500
+      .chip1 
+        20
+  .sub2
+    .user2
+      .name2 
+      .name2{:style=>"box-sizing: content-box;"}
+  .center
+  .sub2
+  .sub1
+    .user1 
+      .name1
+        name3
+      .point1
+        2500
+      .chip1 
+        20

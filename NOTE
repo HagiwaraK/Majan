@@ -1,3 +1,23 @@
+最初の時
+git clone
+
+2回目以降（更新履歴を反映）
+git pull
+
+更新があるか確認
+git fetch
+git diff
+
+更新する時
 git add .
 git commit -m 'メッセージ'
 git push
+
+pushした時に403エラーが出た場合
+git remote -v
+urlの確認
+git remote set-url --push origin url
+ユーザー名とパスワードが中に含まれているurlを入れる
+git push
+
+
