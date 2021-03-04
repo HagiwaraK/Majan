@@ -1,0 +1,31 @@
+-width = 1000;
+-hight = 1000;
+
+:css
+  .subbox {
+    width: 300px;
+    height: 300px;
+    margin: 60px auto 0;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: red;
+  }
+
+  .mainbox {
+    width: 300px;
+    height: 600px;
+    margin: 60px auto 0;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: green;
+  }
+
+
+%h1 対局画面
+
+/.subbox
+%div{:style=>"width:#{width}px;height:1000px;background-color:blue;"}
+
+.mainbox
+  .subbox
+  /.subbox{:style=>"width:#{width}px"}
