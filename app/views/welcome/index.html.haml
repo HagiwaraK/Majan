@@ -1,0 +1,17 @@
+-sheets = Wind.wind_lists
+/ <h1>麻雀</h1>
+
+/ <% sheets.each do |sheet| %>
+/     <% next if sheet.blank? %>
+/     <%= sheet %>
+/     <%= form_with do |f| %>
+/         <%= f.select :member, [['萩原', '萩原'], ['松田', '松田'], ['加藤', '加藤'], ['川岸', '川岸'], ['山下', '山下']], include_blank: "選択して下さい" %>
+/     <% end %>  
+/ <% end %>
+
+/ <%= button_to "ボタン", {controller: 'start', action: 'master'}, {method: :get} %>
+%h1 麻雀
+-sheets.each do |id, name|
+	%p
+		=name
+		=select_tag :user_id, options_for_select(user_name_options)
