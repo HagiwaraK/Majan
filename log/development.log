@@ -1741,3 +1741,1103 @@ Processing by StartController#master as HTML
 Completed 200 OK in 14ms (Views: 12.8ms | Allocations: 8252)
 
 
+Started GET "/" for 127.0.0.1 at 2021-03-04 13:53:48 +0900
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 4179)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/home/taku/work/Majan/vendor/bundle/ruby/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:13:in ``': No such file or directory - yarn (Errno::ENOENT)
+	from /home/taku/work/Majan/vendor/bundle/ruby/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:13:in `initialize'
+	from /home/taku/work/Majan/vendor/bundle/ruby/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `new'
+	from /home/taku/work/Majan/vendor/bundle/ruby/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 214.1ms | Allocations: 19766)
+Completed 200 OK in 221ms (Views: 216.2ms | ActiveRecord: 0.0ms | Allocations: 23319)
+
+
+Started GET "/start/master" for 127.0.0.1 at 2021-03-04 14:23:18 +0900
+Processing by StartController#master as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering start/master.html.haml within layouts/application
+  Rendered start/master.html.haml within layouts/application (Duration: 2.4ms | Allocations: 5064)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 7910)
+Completed 200 OK in 5ms (Views: 4.9ms | Allocations: 8792)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-04 14:23:20 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 3098)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 5941)
+Completed 200 OK in 4ms (Views: 3.4ms | Allocations: 6321)
+
+
+Started GET "/start/master" for 127.0.0.1 at 2021-03-04 14:23:21 +0900
+Processing by StartController#master as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering start/master.html.haml within layouts/application
+  Rendered start/master.html.haml within layouts/application (Duration: 0.1ms | Allocations: 52)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2993)
+Completed 200 OK in 3ms (Views: 2.6ms | Allocations: 3374)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-04 14:23:29 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 3090)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 5933)
+Completed 200 OK in 9ms (Views: 8.5ms | Allocations: 6315)
+
+
+  [1m[35m (81.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (73.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1807486091647645290)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210304094342)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (80.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210304094342"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-03-04 09:44:23.343766"], ["updated_at", "2021-03-04 09:44:23.343766"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1807486091647645290)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "松田"], ["created_at", "2021-03-04 09:44:54.461371"], ["updated_at", "2021-03-04 09:44:54.461371"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (40.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "松田"], ["created_at", "2021-03-04 16:24:06.805879"], ["updated_at", "2021-03-04 16:24:06.805879"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "萩原"], ["created_at", "2021-03-04 16:24:06.814212"], ["updated_at", "2021-03-04 16:24:06.814212"]]
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "川岸"], ["created_at", "2021-03-04 16:24:06.825202"], ["updated_at", "2021-03-04 16:24:06.825202"]]
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "山下"], ["created_at", "2021-03-04 16:24:06.836290"], ["updated_at", "2021-03-04 16:24:06.836290"]]
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "加藤"], ["created_at", "2021-03-04 16:24:06.847402"], ["updated_at", "2021-03-04 16:24:06.847402"]]
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:31:17 +0900
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (106.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210304094342_create_users.rb
+
+
+):
+  
+activerecord (6.1.3) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.3) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.3) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activesupport (6.1.3) lib/active_support/evented_file_update_checker.rb:65:in `execute_if_updated'
+activerecord (6.1.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (6.1.3) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.3) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.1) lib/mini_profiler/profiler.rb:373:in `call'
+webpacker (5.2.1) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.1.3) lib/rails/engine.rb:539:in `call'
+puma (5.2.1) lib/puma/configuration.rb:247:in `call'
+puma (5.2.1) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
+puma (5.2.1) lib/puma/server.rb:431:in `process_client'
+puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:31:38 +0900
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.4ms | Allocations: 2417)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 2486)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 5306)
+
+
+  
+ActionView::Template::Error (You don't need to use "- end" in Haml. Un-indent to close a block:
+- if foo?
+  %strong Foo!
+- else
+  Not foo.
+%p This line is un-indented, so it isn't part of the "if" block):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: -end
+  
+app/views/welcome/index.html.haml:17
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:31:46 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.9ms | Allocations: 3542)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 8459)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 9689)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:32:03 +0900
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.0ms | Allocations: 2101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 5119)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 6231)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:42:51 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.5ms | Allocations: 6403)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 6467)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 4.5ms | Allocations: 13386)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x00000000009cb8>):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 	=f.select :name, @users
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:43:52 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.8ms | Allocations: 6621)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 6685)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 8724)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x0000000000a118>):
+    15: 	%p
+    16: 		=sheet
+    17: 	=form_tag('/', method: :post) do
+    18: 		=f.select :name, @users
+  
+app/views/welcome/index.html.haml:18
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:44:07 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.9ms | Allocations: 3670)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 3735)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 5787)
+
+
+  
+ActionView::Template::Error (private method `select' called for nil:NilClass):
+    15: 	%p
+    16: 		=sheet
+    17: 	=form_tag('/', method: :post) do |f|
+    18: 		=f.select :name, @users
+  
+app/views/welcome/index.html.haml:18
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:44:54 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 0.9ms | Allocations: 2005)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2069)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 4100)
+
+
+  
+ActionView::Template::Error (Inconsistent indentation: "\t " used for indentation, but the rest of the document was indented using 1 tab.):
+    15: 	%p
+    16: 		=sheet
+    17: 	-@users.each do |user|
+    18: 	 %p=user
+    19: 	/ =form_tag('/', method: :post) do |f|
+    20: 	/ 	=f.select :name, @users
+  
+app/views/welcome/index.html.haml:18
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:45:04 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.6ms | Allocations: 2012)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 2076)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms | Allocations: 4107)
+
+
+  
+ActionView::Template::Error (Inconsistent indentation: "\t " used for indentation, but the rest of the document was indented using 1 tab.):
+    15: 	%p
+    16: 		=sheet
+    17: 	-@users.each do |user|
+    18: 	 %p
+    19: 	 	=user
+    20: 	/ =form_tag('/', method: :post) do |f|
+    21: 	/ 	=f.select :name, @users
+  
+app/views/welcome/index.html.haml:18
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:45:19 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.0ms | Allocations: 2004)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 2068)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 4099)
+
+
+  
+ActionView::Template::Error (Inconsistent indentation: "\t\t " used for indentation, but the rest of the document was indented using 1 tab.):
+    15: 	%p
+    16: 		=sheet
+    17: 	-@users.each do |user|
+    18: 		 %p=user
+    19: 	/ =form_tag('/', method: :post) do |f|
+    20: 	/ 	=f.select :name, @users
+  
+app/views/welcome/index.html.haml:18
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:45:26 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 0.9ms | Allocations: 2010)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 2074)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 4105)
+
+
+  
+ActionView::Template::Error (Inconsistent indentation: "\t\t " used for indentation, but the rest of the document was indented using 1 tab.):
+    15: 	%p
+    16: 		=sheet
+    17: 	-@users.each do |user|
+    18: 		 %p
+    19: 		 	=user
+    20: 	/ =form_tag('/', method: :post) do |f|
+    21: 	/ 	=f.select :name, @users
+  
+app/views/welcome/index.html.haml:18
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:45:46 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.3ms | Allocations: 2445)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 5471)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 7538)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:46:56 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.9ms | Allocations: 3880)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 3944)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 5976)
+
+
+  
+ActionView::Template::Error (private method `select' called for nil:NilClass):
+    16: 		=sheet
+    17: 	-@users.each do |user|
+    18: 		=form_tag('/', method: :post) do |f|
+    19: 			=f.select :name, @users	
+    20: 		%p
+    21: 			=user
+    22: 	
+  
+app/views/welcome/index.html.haml:19
+app/views/welcome/index.html.haml:18
+app/views/welcome/index.html.haml:17:in `each'
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:47:18 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.8ms | Allocations: 3882)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3946)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 5977)
+
+
+  
+ActionView::Template::Error (private method `select' called for nil:NilClass):
+    16: 		=sheet
+    17: 	-@users.each do |user|
+    18: 		=form_tag('/', method: :post) do |f|
+    19: 			=f.select :name, user
+    20: 		%p
+    21: 			=user
+    22: 	
+  
+app/views/welcome/index.html.haml:19
+app/views/welcome/index.html.haml:18
+app/views/welcome/index.html.haml:17:in `each'
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:48:48 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 16.8ms | Allocations: 6753)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 6817)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.6ms | Allocations: 8848)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user' for #<ActionView::Base:0x0000000000c6e8>
+Did you mean?  @users):
+    15: 	%p
+    16: 		=sheet
+    17: 		=form_tag('/', method: :post) do |f|
+    18: 			=f.select :name, user
+    19: 		-@users.each do |user|
+    20: 			%p
+    21: 				=user
+  
+app/views/welcome/index.html.haml:18
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:50:30 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 4.4ms | Allocations: 6636)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 6700)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 8731)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x0000000000cc10>):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=f.select :name, @users
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:50:40 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 5.0ms | Allocations: 5930)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 5994)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 8025)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :name, @users
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:50:53 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.3ms | Allocations: 2528)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 5554)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.2ms | Allocations: 7613)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:51:33 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.3ms | Allocations: 2575)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 5590)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 7645)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:51:34 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 0.2ms | Allocations: 254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 3192)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 4535)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:51:38 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 3.2ms | Allocations: 2576)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 5603)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 7659)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:56:54 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.7ms | Allocations: 3832)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 3897)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 5949)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :name, options_for_select(@users)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:57:33 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 3.9ms | Allocations: 3747)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3811)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 5842)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :name, options_for_select(User.name)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:58:09 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 0.8ms | Allocations: 1996)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 2060)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 4091)
+
+
+  
+ActionView::Template::Error (Illegal element: classes and ids must have values.):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		# =select :name, options_for_select(User.name)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:58:18 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.7ms | Allocations: 2364)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 5390)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 7450)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 01:58:44 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.8ms | Allocations: 3747)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 3811)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 5843)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :name, options_for_select(User.name)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:02:47 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/application_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.6ms | Allocations: 4895)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 4959)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.9ms | Allocations: 8979)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :name, options_for_select(user_name_options)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started PUT "/__web_console/repl_sessions/c00ce6ebab40d285779f364003c0edc0" for 127.0.0.1 at 2021-03-05 02:03:49 +0900
+Started PUT "/__web_console/repl_sessions/c00ce6ebab40d285779f364003c0edc0" for 127.0.0.1 at 2021-03-05 02:03:52 +0900
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:05:29 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/application_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.7ms | Allocations: 4915)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 4979)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 7010)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :user_id, options_for_select(user_name_options)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:05:51 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.6ms | Allocations: 2681)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2745)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.8ms | Allocations: 6158)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    14: -sheets.each do |sheet|
+    15: 	%p
+    16: 		=sheet
+    17: 		=select :user_id, options_for_select(user_name_options)
+    18: 		-@users.each do |user|
+    19: 			%p
+    20: 				=user
+  
+app/views/welcome/index.html.haml:17
+app/views/welcome/index.html.haml:14:in `each'
+app/views/welcome/index.html.haml:14
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:06:38 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 4.8ms | Allocations: 7045)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 10068)
+Completed 200 OK in 14ms (Views: 8.0ms | ActiveRecord: 1.9ms | Allocations: 14114)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:07:57 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 5.4ms | Allocations: 7131)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 10155)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 12216)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:08:08 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.2ms | Allocations: 3020)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 3085)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 5113)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check -sheets = ['東', '南', '西', '北']
+/ <h1>麻雀</h1>
+
+/ <% sheets.each do |sheet| %>
+/     <% next if sheet.blank? %>
+/     <%= sheet %>
+/     <%= form_with do |f| %>
+/         <%= f.select :member, [['萩原', '萩原'], ['松田', '松田'], ['加藤', '加藤'], ['川岸', '川岸'], ['山下', '山下']], include_blank: "選択して下さい" %>
+/     <% end %>  
+/ <% end %>
+
+/ <%= button_to "ボタン", {controller: 'start', action: 'master'}, {method: :get} %>
+%h1 麻雀
+-sheets.each do |sheet|
+	%p
+		=sheet
+		=select_tag :user_id, options_for_select(user_name_options)
+		-@users.each do |user|
+
+):
+1:    -sheets = ['東', '南', '西', '北']
+2:    / <h1>麻雀</h1>
+3:    
+4:    / <% sheets.each do |sheet| %>
+5:    /     <% next if sheet.blank? %>
+6:    /     <%= sheet %>
+7:    /     <%= form_with do |f| %>
+8:    /         <%= f.select :member, [['萩原', '萩原'], ['松田', '松田'], ['加藤', '加藤'], ['川岸', '川岸'], ['山下', '山下']], include_blank: "選択して下さい" %>
+9:    /     <% end %>  
+10:    / <% end %>
+11:    
+12:    / <%= button_to "ボタン", {controller: 'start', action: 'master'}, {method: :get} %>
+13:    %h1 麻雀
+14:    -sheets.each do |sheet|
+15:    	%p
+16:    		=sheet
+17:    		=select_tag :user_id, options_for_select(user_name_options)
+18:    		-@users.each do |user|
+  
+app/views/welcome/index.html.haml:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/welcome/index.html.haml:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/welcome/index.html.haml:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/welcome/index.html.haml:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/welcome/index.html.haml:20: syntax error, unexpected end-of-input, expecting `end'
+app/views/welcome/index.html.haml:20: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:08:13 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 5.0ms | Allocations: 6872)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 9895)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 11956)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:14:04 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.9ms | Allocations: 4315)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 4379)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.5ms | Allocations: 10298)
+
+
+  
+ActionView::Template::Error (undefined method `enum' for Wind:Class):
+    1: -sheets = Wind.wind_list
+    2: / <h1>麻雀</h1>
+    3: 
+    4: / <% sheets.each do |sheet| %>
+  
+app/models/wind.rb:2:in `<class:Wind>'
+app/models/wind.rb:1:in `<main>'
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:14:27 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 5.9ms | Allocations: 4610)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4674)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 3.0ms | Allocations: 8108)
+
+
+  
+ActionView::Template::Error (undefined method `wind_list' for Wind(Table doesn't exist):Class
+Did you mean?  wind_lists):
+    1: -sheets = Wind.wind_list
+    2: / <h1>麻雀</h1>
+    3: 
+    4: / <% sheets.each do |sheet| %>
+  
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:16:18 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.2ms | Allocations: 4305)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 4369)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.8ms | Allocations: 8385)
+
+
+  
+ActionView::Template::Error (undefined method `enum' for Wind:Class):
+    1: -sheets = Wind.wind_lists
+    2: / <h1>麻雀</h1>
+    3: 
+    4: / <% sheets.each do |sheet| %>
+  
+app/models/wind.rb:2:in `<class:Wind>'
+app/models/wind.rb:1:in `<main>'
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:20:14 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.7ms | Allocations: 3293)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 3357)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.9ms | Allocations: 6770)
+
+
+  
+ActionView::Template::Error (uninitialized constant ApplicationRecord(abstract)::Base
+Did you mean?  Base64):
+    1: -sheets = Wind.wind_lists
+    2: / <h1>麻雀</h1>
+    3: 
+    4: / <% sheets.each do |sheet| %>
+  
+app/models/wind.rb:1:in `<main>'
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:21:28 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.3ms | Allocations: 4305)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 4369)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.7ms | Allocations: 8385)
+
+
+  
+ActionView::Template::Error (undefined method `enum' for Wind:Class):
+    1: -sheets = Wind
+    2: / <h1>麻雀</h1>
+    3: 
+    4: / <% sheets.each do |sheet| %>
+  
+app/models/wind.rb:2:in `<class:Wind>'
+app/models/wind.rb:1:in `<main>'
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:21:50 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 2.3ms | Allocations: 4306)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 4370)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 6401)
+
+
+  
+ActionView::Template::Error (undefined method `enum' for Wind:Class):
+    1: -sheets = Wind.wind_lists
+    2: / <h1>麻雀</h1>
+    3: 
+    4: / <% sheets.each do |sheet| %>
+  
+app/models/wind.rb:2:in `<class:Wind>'
+app/models/wind.rb:1:in `<main>'
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:24:37 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 4.4ms | Allocations: 5232)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 8334)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 1.9ms | Allocations: 11774)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:25:02 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 5.5ms | Allocations: 6859)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 9874)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.2ms | Allocations: 11935)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:27:22 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 7.1ms | Allocations: 5254)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 8178)
+Completed 200 OK in 19ms (Views: 12.8ms | ActiveRecord: 1.9ms | Allocations: 11619)
+
+
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:28:48 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  Rendered welcome/index.html.haml within layouts/application (Duration: 1.6ms | Allocations: 3428)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 3492)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.8ms | Allocations: 7488)
+
+
+  
+SyntaxError (/home/taku/work/Majan/app/models/wind.rb:2: syntax error, unexpected ':', expecting =>
+	enum wind_list: {0: "東", 1: "南", 2: "西", 3...
+	                  ^
+/home/taku/work/Majan/app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+	enum wind_list: {0: "東", 1: "南", 2: "西", 3: "北"}
+	                         ^
+/home/taku/work/Majan/app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+...wind_list: {0: "東", 1: "南", 2: "西", 3: "北"}
+...                              ^
+/home/taku/work/Majan/app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+... {0: "東", 1: "南", 2: "西", 3: "北"}
+...                              ^
+/home/taku/work/Majan/app/models/wind.rb:2: syntax error, unexpected '}', expecting `end'
+..., 1: "南", 2: "西", 3: "北"}
+...                              ^
+):
+  
+app/models/wind.rb:2: syntax error, unexpected ':', expecting =>
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected '}', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ':', expecting =>
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected '}', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ':', expecting =>
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected ',', expecting `end'
+app/models/wind.rb:2: syntax error, unexpected '}', expecting `end'
+app/views/welcome/index.html.haml:1
+Started GET "/" for 127.0.0.1 at 2021-03-05 02:29:19 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/welcome_controller.rb:3:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/helpers/welcome_helper.rb:5:in `user_name_options'
+  Rendered welcome/index.html.haml within layouts/application (Duration: 4.4ms | Allocations: 5216)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 8336)
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 1.7ms | Allocations: 11776)
+
+
