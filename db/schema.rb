@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_192027) do
+ActiveRecord::Schema.define(version: 2021_03_07_200212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,29 @@ ActiveRecord::Schema.define(version: 2021_03_07_192027) do
   end
 
   create_table "half_rounds", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "first_winner"
+    t.integer "second_winner"
+    t.integer "loser"
+    t.boolean "drawn_game"
+    t.boolean "first_leader_waiting"
+    t.boolean "second_leader_waiting"
+    t.boolean "third_leader_waiting"
+    t.boolean "fourth_leader_waiting"
+    t.integer "first_winner_hand"
+    t.integer "second_winner_hand"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_scores", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "point"
+    t.integer "tip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
