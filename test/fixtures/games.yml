@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  honba: 1
+  round: MyString
+  first_leader_score: 1
+  second_leader_score: 1
+  third_leader_score: 1
+  fourth_leader_score: 1
+
+two:
+  honba: 1
+  round: MyString
+  first_leader_score: 1
+  second_leader_score: 1
+  third_leader_score: 1
+  fourth_leader_score: 1
