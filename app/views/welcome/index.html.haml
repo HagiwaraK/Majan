@@ -1,8 +1,9 @@
 -sheets = Wind.wind_lists
 %h1 麻雀
--sheets.each do |id, name|
-	%p
-		=name
-		=select_tag :user_id, options_for_select(user_name_options)
-=button_tag "対局", class:"btn btn-secondary"
-=button_tag "データ", class:"btn btn-info"
+=form_tag("start/master", :method=>:post, :onsubmit=>"return false;", class:"") do
+	-sheets.each do |id, names|
+		%p
+			=names[1]
+			=select_tag names[0], options_for_select(user_name_options)
+	=button_tag "対局", :type=>"button", :onclick=>"submit()", :class=>"btn btn-secondary"
+	=button_tag "データ", class:"btn btn-info"
