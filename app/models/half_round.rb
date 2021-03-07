@@ -1,0 +1,2 @@
+class HalfRound < ApplicationRecord
+end
