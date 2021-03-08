@@ -1,6 +1,6 @@
 -sheets = Wind.wind_lists
 %h1 麻雀
-=form_tag("start/master", :method=>:post, :onsubmit=>"return false;", class:"") do
+=form_tag("/start/master", :method=>:post, :onsubmit=>"return false;", class:"") do
 	-sheets.each do |id, names|
 		%p
 			=names[1]
