@@ -1,0 +1,224 @@
+  [1m[35m (39.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Majan_test"[0m
+  [1m[35m (61.7ms)[0m  [1m[35mCREATE DATABASE "Majan_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "honba" integer, "round" character varying, "first_leader_score" integer, "second_leader_score" integer, "third_leader_score" integer, "fourth_leader_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "half_rounds" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "half_rounds" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hands" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "hands" ("id" bigserial primary key, "reach" boolean, "value_tiles" integer, "all_simples" boolean, "all_runs" boolean, "self_draw" boolean, "first_turn_win" boolean, "double_run" boolean, "haitei" boolean, "houtei" boolean, "kings_tile_draw" boolean, "double_reach" boolean, "add_a_quad" boolean, "dora" integer, "red_dora" integer, "ura_dora" integer, "all_triples" boolean, "three_color_runs" boolean, "seven_pairs" boolean, "full_straight" boolean, "mixed_outside_hand" boolean, "three_concealed_triples" boolean, "little_dragons" boolean, "all_terminals_and_honors" boolean, "three_color_triples" boolean, "three_quads" boolean, "hand_flush" boolean, "pure_outside_hand" boolean, "two_double_runs" boolean, "full_flush" boolean, "four_concealed_triples" boolean, "thirteen_orphans" boolean, "big_dragons" boolean, "four_winds" boolean, "all_honors" boolean, "all_terminals" boolean, "blessing_of_earth" boolean, "all_green" boolean, "nine_gates" boolean, "four_quads" boolean, "blessing_of_heaven" character varying, "open" boolean, "han" integer, "hu" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "results" CASCADE[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "results" ("id" bigserial primary key, "first_winner" integer, "second_winner" integer, "loser" integer, "drawn_game" boolean, "first_leader_waiting" boolean, "second_leader_waiting" boolean, "third_leader_waiting" boolean, "fourth_leader_waiting" boolean, "first_winner_hand" integer, "second_winner_hand" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_scores" CASCADE[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "user_scores" ("id" bigserial primary key, "user_id" integer, "point" integer, "tip" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210308031511)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210304094342),
+(20210307190137),
+(20210307192027),
+(20210307192419),
+(20210307200212);
+
+[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-08 11:09:31.414849"], ["updated_at", "2021-03-08 11:09:31.414849"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3a7e9b014ed0818bb3f701893951e383c13d429d"], ["created_at", "2021-03-08 11:09:31.418967"], ["updated_at", "2021-03-08 11:09:31.418967"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (106.1ms)[0m  [1m[35mCREATE DATABASE "Majan_test-1" ENCODING = 'unicode'[0m
+  [1m[35m (118.3ms)[0m  [1m[35mCREATE DATABASE "Majan_test-2" ENCODING = 'unicode'[0m
+  [1m[35m (118.2ms)[0m  [1m[35mCREATE DATABASE "Majan_test-0" ENCODING = 'unicode'[0m
+  [1m[35m (118.4ms)[0m  [1m[35mCREATE DATABASE "Majan_test-3" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "honba" integer, "round" character varying, "first_leader_score" integer, "second_leader_score" integer, "third_leader_score" integer, "fourth_leader_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "half_rounds" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "half_rounds" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hands" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "hands" ("id" bigserial primary key, "reach" boolean, "value_tiles" integer, "all_simples" boolean, "all_runs" boolean, "self_draw" boolean, "first_turn_win" boolean, "double_run" boolean, "haitei" boolean, "houtei" boolean, "kings_tile_draw" boolean, "double_reach" boolean, "add_a_quad" boolean, "dora" integer, "red_dora" integer, "ura_dora" integer, "all_triples" boolean, "three_color_runs" boolean, "seven_pairs" boolean, "full_straight" boolean, "mixed_outside_hand" boolean, "three_concealed_triples" boolean, "little_dragons" boolean, "all_terminals_and_honors" boolean, "three_color_triples" boolean, "three_quads" boolean, "hand_flush" boolean, "pure_outside_hand" boolean, "two_double_runs" boolean, "full_flush" boolean, "four_concealed_triples" boolean, "thirteen_orphans" boolean, "big_dragons" boolean, "four_winds" boolean, "all_honors" boolean, "all_terminals" boolean, "blessing_of_earth" boolean, "all_green" boolean, "nine_gates" boolean, "four_quads" boolean, "blessing_of_heaven" character varying, "open" boolean, "han" integer, "hu" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "results" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "honba" integer, "round" character varying, "first_leader_score" integer, "second_leader_score" integer, "third_leader_score" integer, "fourth_leader_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "honba" integer, "round" character varying, "first_leader_score" integer, "second_leader_score" integer, "third_leader_score" integer, "fourth_leader_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "honba" integer, "round" character varying, "first_leader_score" integer, "second_leader_score" integer, "third_leader_score" integer, "fourth_leader_score" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "half_rounds" CASCADE[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "half_rounds" CASCADE[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "half_rounds" CASCADE[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "results" ("id" bigserial primary key, "first_winner" integer, "second_winner" integer, "loser" integer, "drawn_game" boolean, "first_leader_waiting" boolean, "second_leader_waiting" boolean, "third_leader_waiting" boolean, "fourth_leader_waiting" boolean, "first_winner_hand" integer, "second_winner_hand" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_scores" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "half_rounds" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "half_rounds" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "half_rounds" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hands" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hands" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "hands" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "user_scores" ("id" bigserial primary key, "user_id" integer, "point" integer, "tip" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "hands" ("id" bigserial primary key, "reach" boolean, "value_tiles" integer, "all_simples" boolean, "all_runs" boolean, "self_draw" boolean, "first_turn_win" boolean, "double_run" boolean, "haitei" boolean, "houtei" boolean, "kings_tile_draw" boolean, "double_reach" boolean, "add_a_quad" boolean, "dora" integer, "red_dora" integer, "ura_dora" integer, "all_triples" boolean, "three_color_runs" boolean, "seven_pairs" boolean, "full_straight" boolean, "mixed_outside_hand" boolean, "three_concealed_triples" boolean, "little_dragons" boolean, "all_terminals_and_honors" boolean, "three_color_triples" boolean, "three_quads" boolean, "hand_flush" boolean, "pure_outside_hand" boolean, "two_double_runs" boolean, "full_flush" boolean, "four_concealed_triples" boolean, "thirteen_orphans" boolean, "big_dragons" boolean, "four_winds" boolean, "all_honors" boolean, "all_terminals" boolean, "blessing_of_earth" boolean, "all_green" boolean, "nine_gates" boolean, "four_quads" boolean, "blessing_of_heaven" character varying, "open" boolean, "han" integer, "hu" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "hands" ("id" bigserial primary key, "reach" boolean, "value_tiles" integer, "all_simples" boolean, "all_runs" boolean, "self_draw" boolean, "first_turn_win" boolean, "double_run" boolean, "haitei" boolean, "houtei" boolean, "kings_tile_draw" boolean, "double_reach" boolean, "add_a_quad" boolean, "dora" integer, "red_dora" integer, "ura_dora" integer, "all_triples" boolean, "three_color_runs" boolean, "seven_pairs" boolean, "full_straight" boolean, "mixed_outside_hand" boolean, "three_concealed_triples" boolean, "little_dragons" boolean, "all_terminals_and_honors" boolean, "three_color_triples" boolean, "three_quads" boolean, "hand_flush" boolean, "pure_outside_hand" boolean, "two_double_runs" boolean, "full_flush" boolean, "four_concealed_triples" boolean, "thirteen_orphans" boolean, "big_dragons" boolean, "four_winds" boolean, "all_honors" boolean, "all_terminals" boolean, "blessing_of_earth" boolean, "all_green" boolean, "nine_gates" boolean, "four_quads" boolean, "blessing_of_heaven" character varying, "open" boolean, "han" integer, "hu" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "hands" ("id" bigserial primary key, "reach" boolean, "value_tiles" integer, "all_simples" boolean, "all_runs" boolean, "self_draw" boolean, "first_turn_win" boolean, "double_run" boolean, "haitei" boolean, "houtei" boolean, "kings_tile_draw" boolean, "double_reach" boolean, "add_a_quad" boolean, "dora" integer, "red_dora" integer, "ura_dora" integer, "all_triples" boolean, "three_color_runs" boolean, "seven_pairs" boolean, "full_straight" boolean, "mixed_outside_hand" boolean, "three_concealed_triples" boolean, "little_dragons" boolean, "all_terminals_and_honors" boolean, "three_color_triples" boolean, "three_quads" boolean, "hand_flush" boolean, "pure_outside_hand" boolean, "two_double_runs" boolean, "full_flush" boolean, "four_concealed_triples" boolean, "thirteen_orphans" boolean, "big_dragons" boolean, "four_winds" boolean, "all_honors" boolean, "all_terminals" boolean, "blessing_of_earth" boolean, "all_green" boolean, "nine_gates" boolean, "four_quads" boolean, "blessing_of_heaven" character varying, "open" boolean, "han" integer, "hu" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "results" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "results" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "results" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "results" ("id" bigserial primary key, "first_winner" integer, "second_winner" integer, "loser" integer, "drawn_game" boolean, "first_leader_waiting" boolean, "second_leader_waiting" boolean, "third_leader_waiting" boolean, "fourth_leader_waiting" boolean, "first_winner_hand" integer, "second_winner_hand" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "results" ("id" bigserial primary key, "first_winner" integer, "second_winner" integer, "loser" integer, "drawn_game" boolean, "first_leader_waiting" boolean, "second_leader_waiting" boolean, "third_leader_waiting" boolean, "fourth_leader_waiting" boolean, "first_winner_hand" integer, "second_winner_hand" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "results" ("id" bigserial primary key, "first_winner" integer, "second_winner" integer, "loser" integer, "drawn_game" boolean, "first_leader_waiting" boolean, "second_leader_waiting" boolean, "third_leader_waiting" boolean, "fourth_leader_waiting" boolean, "first_winner_hand" integer, "second_winner_hand" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_scores" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_scores" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_scores" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "user_scores" ("id" bigserial primary key, "user_id" integer, "point" integer, "tip" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "user_scores" ("id" bigserial primary key, "user_id" integer, "point" integer, "tip" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "user_scores" ("id" bigserial primary key, "user_id" integer, "point" integer, "tip" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210308031511)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210304094342),
+(20210307190137),
+(20210307192027),
+(20210307192419),
+(20210307200212);
+
+[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210308031511)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210308031511)[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210308031511)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210304094342),
+(20210307190137),
+(20210307192027),
+(20210307192419),
+(20210307200212);
+
+[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210304094342),
+(20210307190137),
+(20210307192027),
+(20210307192419),
+(20210307200212);
+
+[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210304094342),
+(20210307190137),
+(20210307192027),
+(20210307192419),
+(20210307200212);
+
+[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-08 11:09:31.761762"], ["updated_at", "2021-03-08 11:09:31.761762"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3a7e9b014ed0818bb3f701893951e383c13d429d"], ["created_at", "2021-03-08 11:09:31.770706"], ["updated_at", "2021-03-08 11:09:31.770706"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-08 11:09:31.774481"], ["updated_at", "2021-03-08 11:09:31.774481"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-08 11:09:31.774448"], ["updated_at", "2021-03-08 11:09:31.774448"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-08 11:09:31.774832"], ["updated_at", "2021-03-08 11:09:31.774832"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3a7e9b014ed0818bb3f701893951e383c13d429d"], ["created_at", "2021-03-08 11:09:31.787103"], ["updated_at", "2021-03-08 11:09:31.787103"]]
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3a7e9b014ed0818bb3f701893951e383c13d429d"], ["created_at", "2021-03-08 11:09:31.792460"], ["updated_at", "2021-03-08 11:09:31.792460"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3a7e9b014ed0818bb3f701893951e383c13d429d"], ["created_at", "2021-03-08 11:09:31.792502"], ["updated_at", "2021-03-08 11:09:31.792502"]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "games" DISABLE TRIGGER ALL;ALTER TABLE "half_rounds" DISABLE TRIGGER ALL;ALTER TABLE "hands" DISABLE TRIGGER ALL;ALTER TABLE "results" DISABLE TRIGGER ALL;ALTER TABLE "user_scores" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[31mDELETE FROM "half_rounds";
+DELETE FROM "user_scores";
+DELETE FROM "users";
+DELETE FROM "hands";
+DELETE FROM "games";
+DELETE FROM "results";
+INSERT INTO "half_rounds" ("id", "created_at", "updated_at") VALUES (980190962, '2021-03-08 11:09:31.808695', '2021-03-08 11:09:31.808695'), (298486374, '2021-03-08 11:09:31.808695', '2021-03-08 11:09:31.808695');
+INSERT INTO "user_scores" ("id", "user_id", "point", "tip", "created_at", "updated_at") VALUES (980190962, 1, 1, 1, '2021-03-08 11:09:31.814732', '2021-03-08 11:09:31.814732'), (298486374, 1, 1, 1, '2021-03-08 11:09:31.814732', '2021-03-08 11:09:31.814732');
+INSERT INTO "users" ("id", "name", "created_at", "updated_at") VALUES (980190962, 'MyString', '2021-03-08 11:09:31.817293', '2021-03-08 11:09:31.817293'), (298486374, 'MyString', '2021-03-08 11:09:31.817293', '2021-03-08 11:09:31.817293');
+INSERT INTO "hands" ("id", "reach", "value_tiles", "all_simples", "all_runs", "self_draw", "first_turn_win", "double_run", "haitei", "houtei", "kings_tile_draw", "double_reach", "add_a_quad", "dora", "red_dora", "ura_dora", "all_triples", "three_color_runs", "seven_pairs", "full_straight", "mixed_outside_hand", "three_concealed_triples", "little_dragons", "all_terminals_and_honors", "three_color_triples", "three_quads", "hand_flush", "pure_outside_hand", "two_double_runs", "full_flush", "four_concealed_triples", "thirteen_orphans", "big_dragons", "four_winds", "all_honors", "all_terminals", "blessing_of_earth", "all_green", "nine_gates", "four_quads", "blessing_of_heaven", "open", "han", "hu", "created_at", "updated_at") VALUES (980190962, FALSE, 1, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 1, 1, 1, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 'MyString', FALSE, 1, 1, '2021-03-08 11:09:31.819357', '2021-03-08 11:09:31.819357'), (298486374, FALSE, 1, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 1, 1, 1, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, 'MyString', FALSE, 1, 1, '2021-03-08 11:09:31.819357', '2021-03-08 11:09:31.819357');
+INSERT INTO "games" ("id", "honba", "round", "first_leader_score", "second_leader_score", "third_leader_score", "fourth_leader_score", "created_at", "updated_at") VALUES (980190962, 1, 'MyString', 1, 1, 1, 1, '2021-03-08 11:09:31.824833', '2021-03-08 11:09:31.824833'), (298486374, 1, 'MyString', 1, 1, 1, 1, '2021-03-08 11:09:31.824833', '2021-03-08 11:09:31.824833');
+INSERT INTO "results" ("id", "first_winner", "second_winner", "loser", "drawn_game", "first_leader_waiting", "second_leader_waiting", "third_leader_waiting", "fourth_leader_waiting", "first_winner_hand", "second_winner_hand", "created_at", "updated_at") VALUES (980190962, 1, 1, 1, FALSE, FALSE, FALSE, FALSE, FALSE, 1, 1, '2021-03-08 11:09:31.828011', '2021-03-08 11:09:31.828011'), (298486374, 1, 1, 1, FALSE, FALSE, FALSE, FALSE, FALSE, 1, 1, '2021-03-08 11:09:31.828011', '2021-03-08 11:09:31.828011')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "games" ENABLE TRIGGER ALL;ALTER TABLE "half_rounds" ENABLE TRIGGER ALL;ALTER TABLE "hands" ENABLE TRIGGER ALL;ALTER TABLE "results" ENABLE TRIGGER ALL;ALTER TABLE "user_scores" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+WelcomeControllerTest: test_should_get_index
+--------------------------------------------
+Started GET "/welcome/index" for 127.0.0.1 at 2021-03-08 20:09:31 +0900
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.haml within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered welcome/index.html.haml within layouts/application (Duration: 8.1ms | Allocations: 4278)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/Users/kaito/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:13:in ``': No such file or directory - yarn (Errno::ENOENT)
+	from /Users/kaito/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:13:in `initialize'
+	from /Users/kaito/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `new'
+	from /Users/kaito/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/webpacker-5.2.1/lib/webpacker/runner.rb:6:in `run'
+	from ./bin/webpack:17:in `block in <main>'
+	from ./bin/webpack:16:in `chdir'
+	from ./bin/webpack:16:in `<main>'
+
+  Rendered layout layouts/application.html.erb (Duration: 2598.9ms | Allocations: 54473)
+Completed 500 Internal Server Error in 2614ms (ActiveRecord: 0.3ms | Allocations: 58778)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m

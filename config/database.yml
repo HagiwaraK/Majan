@@ -9,8 +9,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: unicode
-  username: taku
-  password: 19946111
+  username: kaito
+  password: 0913
   host: localhost
 
 development:
