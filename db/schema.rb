@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_161525) do
+ActiveRecord::Schema.define(version: 2021_03_10_131957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_161525) do
     t.boolean "four_concealed_triples"
     t.boolean "thirteen_orphans"
     t.boolean "big_dragons"
-    t.boolean "four_winds"
     t.boolean "all_honors"
     t.boolean "all_terminals"
     t.boolean "blessing_of_earth"
@@ -74,6 +73,19 @@ ActiveRecord::Schema.define(version: 2021_03_08_161525) do
     t.integer "hu"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "pure_nine_gates"
+    t.boolean "suttan"
+    t.boolean "all_waitting_thirteen_orphans"
+    t.boolean "blessing_of_person"
+    t.boolean "big_four_winds"
+    t.boolean "small_four_winds"
+    t.boolean "three_continuous_triples"
+    t.boolean "four_continuous_triples"
+    t.integer "pon"
+    t.integer "chi"
+    t.integer "ankan"
+    t.integer "kakan"
+    t.integer "minkan"
   end
 
   create_table "results", force: :cascade do |t|
