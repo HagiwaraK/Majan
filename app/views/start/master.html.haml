@@ -28,7 +28,7 @@
   %span=leader.name
   %br
     -Hand.column_names.each_with_index do |h, index|
-      - label = "checkbox_#{leader.id}_#{(index+1)}"
+      - label = "#{leader.id}-#{h}"
       - if h == 'dora' || h == 'red_dora' || h == 'ura_dora'
         = select_tag label, options_for_select(dora_num)
         = label_tag label, Hand.to_ja(h)
@@ -47,7 +47,15 @@
         = check_box_tag label
         = label_tag label, Hand.to_ja(h)
   %br
-
+= select_tag "first_winner", options_for_select(user_name_options(options={"いない": nil}))
+= label_tag "first_winner", "上がり(一人目)"
+= select_tag "second_winner", options_for_select(user_name_options(options={"いない": nil}))
+= label_tag "second_winner", "上がり(二人目)"
+= select_tag "loser", options_for_select(user_name_options(options={"いない": nil}))
+= label_tag "loser", "振込"
+= check_box_tag "drawn_game"
+= label_tag "drawn_game", "流局"
+= button_tag "データ送信", :type=>"button", :class=>"btn btn-primary"
 
 
 
