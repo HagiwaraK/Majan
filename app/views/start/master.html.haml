@@ -47,15 +47,23 @@
         = check_box_tag label
         = label_tag label, Hand.to_ja(h)
   %br
-= select_tag "first_winner", options_for_select(user_name_options(options={"いない": nil}))
-= label_tag "first_winner", "上がり(一人目)"
-= select_tag "second_winner", options_for_select(user_name_options(options={"いない": nil}))
-= label_tag "second_winner", "上がり(二人目)"
-= select_tag "loser", options_for_select(user_name_options(options={"いない": nil}))
-= label_tag "loser", "振込"
-= check_box_tag "drawn_game"
-= label_tag "drawn_game", "流局"
-= button_tag "データ送信", :type=>"button", :class=>"btn btn-primary"
+=form_tag("/start/next_game", :method=>:post, :onsubmit=>"return false;", class:"") do
+  = hidden_field_tag "first_leader_id", @first_leader.id
+  = hidden_field_tag "second_leader_id", @second_leader.id
+  = hidden_field_tag "third_leader_id", @third_leader.id
+  = hidden_field_tag "fourth_leader_id", @fourth_leader.id
+  = hidden_field_tag "half_round_id", @half_round.id
+  = hidden_field_tag "game_id", @game.id
+
+  = select_tag "first_winner", options_for_select(user_name_options(options={"いない": nil}))
+  = label_tag "first_winner", "上がり(一人目)"
+  = select_tag "second_winner", options_for_select(user_name_options(options={"いない": nil}))
+  = label_tag "second_winner", "上がり(二人目)"
+  = select_tag "loser", options_for_select(user_name_options(options={"いない": nil}))
+  = label_tag "loser", "振込"
+  = check_box_tag "drawn_game"
+  = label_tag "drawn_game", "流局"
+  = button_tag "データ送信", :type=>"button", :onclick=>"submit()", :class=>"btn btn-primary"
 
 
 
