@@ -1,1 +1,203 @@
 @import "bootstrap";
+
+
+@mixin margin($t:0%, $r:0%, $b:0%, $l:0%) {
+  margin: $t $r $b $l;
+  padding: 0%;
+}
+
+@mixin margin_top($t:0%, $r:0%, $b:0%, $l:0%) {
+  margin: $t $r $b $l;
+  padding: 0%;
+  vertical-align: top;
+}
+
+@mixin wh($w:100%, $h:100%) {
+  width: $w;
+  height: $h;
+}
+
+@mixin font_setup() {
+  font-size: 5vmin;
+  margin: 0%;
+  padding: 0%;
+}
+
+@mixin border($trbl:a) {
+  $color: #000000;
+  @if $trbl == a {
+    border: medium solid $color;
+  } @else if $trbl == t {
+    border-top: medium solid $color;
+  } @else if $trbl == l {
+    border-left: medium solid $color;
+  } @else if $trbl == b {
+    border-bottom: medium solid $color;
+  } @else if $trbl == r {
+    border-right: medium solid $color;
+  }
+}
+
+.main {
+  @include margin();
+  @include wh(100%, 93%);
+  font-size: 0;
+  text-align: center;
+}
+
+.center {
+  @include margin(1%, 1%, 1%, 1%);
+  @include wh(40%, 60%);
+  display: inline-block;
+  background-color: green;
+}
+
+.user1 {
+  @include margin(0%, 30%, 0%, 30%);
+  @include wh(40%, 15%);
+  @include border(a);
+}
+
+.name1 {
+  @include margin();
+  @include wh(100%, 50%);
+  @include font_setup();
+  @include border(b);
+}
+
+.point1 {
+  @include margin();
+  @include wh(69%, 50%);
+  @include font_setup();
+  display: inline-block;
+}
+
+.chip1 {
+  @include margin();
+  @include wh(29%, 50%);
+  @include font_setup();
+  @include border(l);
+  display: inline-block;
+}
+
+.user2 {
+  @include margin_top(1%, 0%, 0%, 15%);
+  @include wh(10%, 60%);
+  @include border(a);
+  display: inline-block;
+}
+
+.user2_sub {
+  @include margin();
+  @include wh(49%, 100%);
+  display: inline-block;
+}
+
+.name2 {
+  @include margin_top();
+  @include wh(49%, 100%);
+  @include font_setup();
+  @include border(l);
+  display: inline-block;
+}
+
+.point2 {
+  @include margin_top();
+  @include wh(100%, 70%);
+  @include font_setup();
+  display: inline-block;
+}
+
+.chip2 {
+  @include margin_top();
+  @include wh(100%, 30%);
+  @include font_setup();
+  @include border(t);
+  display: inline-block;
+}
+
+.name2 p, .point2 p, .chip2 p{
+  font-size: 2vmax;
+  transform: rotate(90deg);
+  position: relative;
+  top: 40%;
+  margin: 0%;
+  padding: 0%;
+}
+
+.user3 {
+  @include margin(0%, 30%, 0%, 30%);
+  @include wh(40%, 15%);
+  @include border(a);
+}
+
+.name3 {
+  @include margin();
+  @include wh(100%, 50%);
+  @include font_setup();
+  @include border(b);
+}
+
+.point3 {
+  @include margin();
+  @include wh(69%, 50%);
+  @include font_setup();
+  display: inline-block;
+}
+
+.chip3 {
+  @include margin();
+  @include wh(29%, 50%);
+  @include font_setup();
+  @include border(l);
+  display: inline-block;
+}
+
+.user4 {
+  @include margin_top(1%, 15%, 0%, 0%);
+  @include wh(10%, 60%);
+  @include border(a);
+  display: inline-block;
+}
+
+.user4_sub {
+  @include margin();
+  @include wh(50%, 100%);
+  display: inline-block;
+}
+
+.name4 {
+  @include margin_top();
+  @include wh(50%, 100%);
+  @include font_setup();
+  @include border(r);
+  display: inline-block;
+}
+
+.point4 {
+  @include margin_top();
+  @include wh(100%, 70%);
+  @include font_setup();
+  display: inline-block;
+}
+
+.chip4 {
+  @include margin_top();
+  @include wh(100%, 30%);
+  @include font_setup();
+  @include border(b);
+  display: inline-block;
+}
+
+.name4 p, .point4 p, .chip4 p{
+  font-size: 2vmax;
+  transform: rotate(-90deg);
+  position: relative;
+  top: 40%;
+  margin: 0%;
+  padding: 0%;
+}
+
+html, body {
+  height: 100%;
+}

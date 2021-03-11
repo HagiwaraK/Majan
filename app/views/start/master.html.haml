@@ -1,235 +1,11 @@
-:css
-  .main {
-    width: 100%;
-    height: 93%;
-    margin: 0px;
-    text-align: center;
-    font-size: 0;
-  }
-
-  .center {
-    display: inline-block;
-    width: 40%;
-    height: 60%;
-    margin: 1%;
-    background-color: green;
-  }
-  
-  .user1 {
-    font-size: 0;
-    width: 40%;
-    height: 15%;
-    margin: 0% 30% 0% 30%;
-    padding: 0%;
-    box-sizing: content-box;
-    border: medium solid #ff00ff;
-  }
-
-  .name1 {
-    font-size: 24pt;
-    width: 100%;
-    height: 50%;
-    margin: 0%;
-    box-sizing: content-box;
-    border-bottom: medium solid #ff00ff;
-  }
-
-  .point1 {
-    display: inline-block;
-    font-size: 24pt;
-    width: 69%;
-    height: 50%;
-    margin: 0%;
-  }
-
-  .chip1 {
-    display: inline-block;
-    font-size: 24pt;
-    width: 29%;
-    height: 50%;
-    margin: 0%;
-    box-sizing: content-box;
-    border-left: medium solid #ff00ff;
-  }
-
-  .user2 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 0;
-    width: 10%;
-    height: 60%;
-    margin: 1% 0% 0% 15%;
-    padding: 0%;
-    border: medium solid #ff00ff;
-  }
-
-  .user2_sub {
-    display: inline-block;
-    font-size: 24pt;
-    width: 50%;
-    height: 100%;
-    margin: 0%;
-    padding: 0%;
-  }
-
-  .name2 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24pt;
-    width: 50%;
-    height: 100%;
-    margin: 0%;
-    /box-sizing: content-box;
-    border-left: medium solid #ff00ff;
-  }
-
-  .point2 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24pt;
-    width: 100%;
-    height: 70%;
-    margin: 0%;
-  }
-
-  .chip2 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24pt;
-    width: 100%;
-    height: 30%;
-    margin: 0%;
-    box-sizing: content-box;
-    border-top: medium solid #ff00ff;
-  }
-  
-  .name2 p, .point2 p, .chip2 p{
-    transform: rotate(90deg);
-    position: relative;
-    top: 40%;
-    margin: 0%;
-    padding: 0%;
-  }
-
-  .rotate {
-    width: 100%;
-    height: 100%;
-    transform: rotate(90deg);
-    margin: 0% 0% 0% 50%;
-  }
-  
-  .user3 {
-    font-size: 0;
-    width: 40%;
-    height: 15%;
-    margin: 0% 30% 0% 30%;
-    box-sizing: content-box;
-    border: medium solid #ff00ff;
-  }
-
-  .name3 {
-    font-size: 24pt;
-    width: 100%;
-    height: 50%;
-    margin: 0%;
-    box-sizing: content-box;
-    border-bottom: medium solid #ff00ff;
-  }
-
-  .point3 {
-    display: inline-block;
-    font-size: 24pt;
-    width: 69%;
-    height: 50%;
-    margin: 0%;
-  }
-
-  .chip3 {
-    display: inline-block;
-    font-size: 24pt;
-    width: 29%;
-    height: 50%;
-    margin: 0%;
-    box-sizing: content-box;
-    border-left: medium solid #ff00ff;
-  }
-
-  .user4 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 0;
-    width: 10%;
-    height: 60%;
-    margin: 1% 15% 0% 0%;
-    padding: 0%;
-    border: medium solid #ff00ff;
-  }
-
-  .user4_sub {
-    display: inline-block;
-    font-size: 24pt;
-    width: 50%;
-    height: 100%;
-    margin: 0%;
-    padding: 0%;
-  }
-
-  .name4 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24pt;
-    width: 50%;
-    height: 100%;
-    margin: 0%;
-    /box-sizing: content-box;
-    border-right: medium solid #ff00ff;
-  }
-
-  .point4 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24pt;
-    width: 100%;
-    height: 70%;
-    margin: 0%;
-  }
-
-  .chip4 {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 24pt;
-    width: 100%;
-    height: 30%;
-    margin: 0%;
-    box-sizing: content-box;
-    border-bottom: medium solid #ff00ff;
-  }
-  
-  .name4 p, .point4 p, .chip4 p{
-    font-size: 2vmax;
-    display: inline-block;
-    transform: rotate(-90deg);
-    position: relative;
-    top: 40%;
-    margin: 0%;
-    padding: 0%;
-  }
-  
-  html, body {
-    height: 100%;
-  }
-
 :javascript
   $(function(){
     $('.user1').click(function() {
       console.log("hello");
     });
-  
+    
   });
   
-
-
-
 %p=@first_leader.to_json
 %p=@second_leader.to_json
 %p=@third_leader.to_json
@@ -240,10 +16,43 @@
 %p=@second_leader_score.to_json
 %p=@third_leader_score.to_json
 %p=@fourth_leader_score.to_json
+
+-han_num = [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+-hu_num = [0,20,25,30,40,50,60,70,80,90,100,110]
+-dora_num = [0,1,2,3,4,5,6,7,8,9,10]
+-naki_num = [0,1,2,3,4]
+
+-member = [@first_leader, @second_leader, @third_leader, @fourth_leader]
+-member.each do |leader|
+  %span=leader.id 
+  %span=leader.name
+  %br
+    -Hand.column_names.each_with_index do |h, index|
+      - label = "checkbox_#{leader.id}_#{(index+1)}"
+      - if h == 'dora' || h == 'red_dora' || h == 'ura_dora'
+        = select_tag label, options_for_select(dora_num)
+        = label_tag label, h
+      - elsif h == 'han'
+        = select_tag label, options_for_select(han_num)
+        = label_tag label, h
+      -elsif h == 'hu'
+        = select_tag label, options_for_select(hu_num)
+        = label_tag label, h
+      -elsif h == 'pon' || h =='chi' || h == 'ankan' || h =='kakan' || h == 'minkan'
+        = select_tag label, options_for_select(naki_num)
+        = label_tag label, h
+      - else
+        = check_box_tag label
+        = label_tag label, h
+  %br
+
+
+
+
 %h1 対局画面
 
 .main
-  .user1 
+  .user1
     .name1
       =@first_leader.name
     .point1
