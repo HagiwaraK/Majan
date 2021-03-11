@@ -31,19 +31,21 @@
       - label = "checkbox_#{leader.id}_#{(index+1)}"
       - if h == 'dora' || h == 'red_dora' || h == 'ura_dora'
         = select_tag label, options_for_select(dora_num)
-        = label_tag label, h
+        = label_tag label, Hand.to_ja(h)
       - elsif h == 'han'
         = select_tag label, options_for_select(han_num)
-        = label_tag label, h
+        = label_tag label, Hand.to_ja(h)
       -elsif h == 'hu'
         = select_tag label, options_for_select(hu_num)
-        = label_tag label, h
+        = label_tag label, Hand.to_ja(h)
       -elsif h == 'pon' || h =='chi' || h == 'ankan' || h =='kakan' || h == 'minkan'
         = select_tag label, options_for_select(naki_num)
-        = label_tag label, h
+        = label_tag label, Hand.to_ja(h)
+      -elsif h == 'id' || h == 'created_at' || h == 'updated_at'
+
       - else
         = check_box_tag label
-        = label_tag label, h
+        = label_tag label, Hand.to_ja(h)
   %br
 
 
