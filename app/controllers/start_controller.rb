@@ -23,7 +23,7 @@ class StartController < ApplicationController
   		user_id:@fourth_leader.id, point:init_score, chip:init_chip, half_round_id:@half_round.id
   	)
   	@game = Game.new(
-  		honba:0, round:"east", half_round_id: @half_round.id
+  		honba:0, round:"east", half_round_id: @half_round.id, kyoku:1
   		)
   end
 end

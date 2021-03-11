@@ -52,7 +52,8 @@
 
 
 %h1 対局画面
-
+-round = @game.get_ja_round
+%h1="#{round}#{@game.kyoku}局#{@game.honba}本場"
 .main
   .user1
     .name1
