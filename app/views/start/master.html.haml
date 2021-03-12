@@ -70,6 +70,7 @@
 %h1 対局画面
 -round = @game.get_ja_round
 %h1="#{round}#{@game.kyoku}局#{@game.honba}本場"
+%h3="親: #{@current_leader.name}"
 .main
   .user1
     .name1

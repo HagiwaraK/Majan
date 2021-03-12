@@ -6,6 +6,7 @@ class StartController < ApplicationController
   	@second_leader = User.find(params[:south].to_i)
   	@third_leader = User.find(params[:west].to_i)
   	@fourth_leader = User.find(params[:north].to_i)
+    @current_leader = @first_leader
   	@half_round = HalfRound.new
   	@half_round.save!
   	init_score = 25000
@@ -45,6 +46,7 @@ class StartController < ApplicationController
     @second_leader_score = UserScore.find_by(user_id:@second_leader.id, half_round_id: @half_round.id)
     @third_leader_score = UserScore.find_by(user_id:@third_leader.id, half_round_id: @half_round.id)
     @fourth_leader_score = UserScore.find_by(user_id:@fourth_leader.id, half_round_id: @half_round.id)
+    load_current_leader @game.kyoku
     render "master"
   end
 
@@ -54,6 +56,11 @@ class StartController < ApplicationController
       @second_leader = User.find(params[:second_leader_id])
       @third_leader = User.find(params[:third_leader_id])
       @fourth_leader = User.find(params[:fourth_leader_id])
+    end
+
+    def load_current_leader kyoku
+      leaders = [@first_leader, @second_leader, @third_leader, @fourth_leader]
+      @current_leader = leaders[kyoku-1]
     end
 
     def get_current_r_k_h prev_game
@@ -82,6 +89,7 @@ class StartController < ApplicationController
             kyoku += 1
           end
         end
+        honba = 0
       else # 連荘のとき
         honba += 1
       end
