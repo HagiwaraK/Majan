@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_042053) do
+ActiveRecord::Schema.define(version: 2021_03_12_044922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,18 +95,16 @@ ActiveRecord::Schema.define(version: 2021_03_12_042053) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "first_winner"
-    t.integer "second_winner"
-    t.integer "loser"
+    t.integer "first_winner_user_id"
+    t.integer "second_winner_user_id"
+    t.integer "loser_user_id"
     t.boolean "drawn_game"
-    t.boolean "first_leader_waiting"
-    t.boolean "second_leader_waiting"
-    t.boolean "third_leader_waiting"
-    t.boolean "fourth_leader_waiting"
-    t.integer "first_winner_hand"
-    t.integer "second_winner_hand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "first_leader_hand_id"
+    t.integer "second_leader_hand_id"
+    t.integer "third_leader_hand_id"
+    t.integer "fourth_leader_hand_id"
   end
 
   create_table "user_scores", force: :cascade do |t|
