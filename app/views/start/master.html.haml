@@ -21,6 +21,7 @@
 -hu_num = [0,20,25,30,40,50,60,70,80,90,100,110]
 -dora_num = [0,1,2,3,4,5,6,7,8,9,10]
 -naki_num = [0,1,2,3,4]
+-value_tiles_num = [0,1,2,3,4]
 
 -member = [@first_leader, @second_leader, @third_leader, @fourth_leader]
 -member.each do |leader|
@@ -29,7 +30,10 @@
   %br
     -Hand.column_names.each_with_index do |h, index|
       - label = "#{leader.id}-#{h}"
-      - if h == 'dora' || h == 'red_dora' || h == 'ura_dora'
+      - if h == 'value_tiles'
+        = select_tag label, options_for_select(value_tiles_num)
+        = label_tag label, Hand.to_ja(h)
+      - elsif h == 'dora' || h == 'red_dora' || h == 'ura_dora'
         = select_tag label, options_for_select(dora_num)
         = label_tag label, Hand.to_ja(h)
       - elsif h == 'han'
@@ -55,11 +59,11 @@
   = hidden_field_tag "half_round_id", @half_round.id
   = hidden_field_tag "game_id", @game.id
 
-  = select_tag "first_winner", options_for_select(user_name_options(options={"いない": nil}))
+  = select_tag "first_winner", options_for_select(user_name_options(options={"該当者なし": nil}))
   = label_tag "first_winner", "上がり(一人目)"
-  = select_tag "second_winner", options_for_select(user_name_options(options={"いない": nil}))
+  = select_tag "second_winner", options_for_select(user_name_options(options={"該当者なし": nil}))
   = label_tag "second_winner", "上がり(二人目)"
-  = select_tag "loser", options_for_select(user_name_options(options={"いない": nil}))
+  = select_tag "loser", options_for_select(user_name_options(options={"該当者なし": nil}))
   = label_tag "loser", "振込"
   = check_box_tag "drawn_game"
   = label_tag "drawn_game", "流局"
