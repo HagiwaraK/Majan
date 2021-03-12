@@ -12,7 +12,7 @@ class Hand < ApplicationRecord
 								"open": "鳴き", "han": "翻", "hu": "符", "pure_nine_gates": "純正九蓮宝燈", "suttan": "四暗刻単騎",
 								"all_waitting_thirteen_orphans": "国士無双十三門待ち", "blessing_of_person": "人和", "big_four_winds": "大四喜",
 								"small_four_winds": "小四喜", "three_continuous_triples": "三連刻", "four_continuous_triples": "四連刻",
-								"pon": "ポン", "chi": "チー", "ankan": "暗槓", "kakan": "加槓", "minkan": "明槓"}
+								"pon": "ポン", "chi": "チー", "ankan": "暗槓", "kakan": "加槓", "minkan": "明槓", "tenpai": "聴牌"}
 
 	def self.to_ja(column_name)
 		return column_name_and_jas[column_name]

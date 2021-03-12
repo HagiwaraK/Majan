@@ -7,7 +7,9 @@ class StartController < ApplicationController
   	@third_leader = User.find(params[:west].to_i)
   	@fourth_leader = User.find(params[:north].to_i)
     @current_leader = @first_leader
-  	@half_round = HalfRound.new
+  	@half_round = HalfRound.new(
+      first_leader_user_id: @first_leader.id, second_leader_user_id: @second_leader.id, third_leader_user_id: @third_leader.id, fourth_leader_user_id: @fourth_leader.id
+    )
   	@half_round.save!
   	init_score = 25000
   	init_chip = 0
@@ -52,10 +54,10 @@ class StartController < ApplicationController
 
   private
     def get_players
-      @first_leader = User.find(params[:first_leader_id])
-      @second_leader = User.find(params[:second_leader_id])
-      @third_leader = User.find(params[:third_leader_id])
-      @fourth_leader = User.find(params[:fourth_leader_id])
+      @first_leader = User.find(@half_round.first_leader_user_id)
+      @second_leader = User.find(@half_round.second_leader_user_id)
+      @third_leader = User.find(@half_round.third_leader_user_id)
+      @fourth_leader = User.find(@half_round.fourth_leader_user_id)
     end
 
     def load_current_leader kyoku
