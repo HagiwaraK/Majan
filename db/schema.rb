@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_041528) do
+ActiveRecord::Schema.define(version: 2021_03_12_042053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_041528) do
     t.integer "ankan"
     t.integer "kakan"
     t.integer "minkan"
+    t.boolean "tenpai"
   end
 
   create_table "results", force: :cascade do |t|
