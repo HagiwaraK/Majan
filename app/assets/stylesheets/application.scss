@@ -1,6 +1,5 @@
 @import "bootstrap";
 
-
 @mixin margin($t:0%, $r:0%, $b:0%, $l:0%) {
   margin: $t $r $b $l;
   padding: 0%;
@@ -49,7 +48,7 @@
   @include margin(1%, 1%, 1%, 1%);
   @include wh(40%, 60%);
   display: inline-block;
-  background-color: green;
+  background-color: rgb(13, 128, 0);
 }
 
 .user1 {
@@ -198,6 +197,86 @@
   padding: 0%;
 }
 
+.leader {
+  background-color: rgba(191, 79, 19, 0.75);
+}
+
 html, body {
   height: 100%;
+  background-color: rgb(241, 241, 241);
+}
+
+
+//-------------------------------------------------------------------------------
+
+// モーダルウィンドウ全体のレイアウト（画面いっぱいに表示）
+.c-modal {
+  @include margin();
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+// 黒背景の設定
+.c-modal_bg {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100%;
+}
+
+// ウィンドウの設定
+.c-modal_content {
+  background: #fff;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  width: 70%;
+}
+
+.c-modal_content_inner {
+  position: relative;
+  padding: 24px;
+}
+
+
+
+//-------------------------------------------------------------------------------
+
+
+.accordion {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.menu {
+  background-color: purple;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu:hover,
+.menu:active,
+.menu.is-active {
+  background-color: black;
+}
+
+.contents {
+  display: none;
+  border: 1px solid black;
+  padding: 10px;
+  line-height: normal;
+  height: auto;
+  opacity: 1;
+  text-align: center;
 }

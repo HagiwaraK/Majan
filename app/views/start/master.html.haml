@@ -1,11 +1,169 @@
+/////////////////////////////////////////////////////
+//////
+////
+/                 javascript
+/                                               ////
+/                                             //////
+////////////////////////////////////////////////////
 :javascript
-  $(function(){
+  $(function() {
     $('.user1').click(function() {
-      console.log("hello");
+      $( '#modal' ).fadeIn( 300 );
+      return false;
     });
-    
+
+    $('.user2').on('click', function() {
+      $( '#modal' ).fadeIn( 300 );
+      return false;
+    });
+
+    $('.user3').on('click', function() {
+      $( '#modal' ).fadeIn( 300 );
+      return false;
+    });
+
+    $('.user4').on('click', function() {
+      $( '#modal' ).fadeIn( 300 );
+      return false;
+    });
+
+    // ウィンドウを閉じる
+    $( '.js-modal-close' ).on( 'click', function() {
+      $( '.js-modal' ).fadeOut( 300 );
+      return false;
+    });
+
+
+    $(".js-menu").on("click", function () {
+        $(this).next().slideToggle();
+    });
+
   });
+/////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////
+//////
+////
+/                    haml
+/                                               ////
+/                                             //////
+////////////////////////////////////////////////////
+
+//////////////////  main  //////////////////////////
+%h1 対局画面
+-round = @game.get_ja_round
+
+.main
+  .user1{"data-target" => "modal"}
+    -if @first_leader.name == @current_leader.name
+      .name1.leader
+        =@first_leader.name
+      .point1
+        =@first_leader_score.point
+      .chip1 
+        =@first_leader_score.chip
+    -else
+      .name1
+        =@first_leader.name
+      .point1
+        =@first_leader_score.point
+      .chip1 
+        =@first_leader_score.chip
+      
+  .user2{"data-target" => "modal"}
+    -if @second_leader.name == @current_leader.name
+      .user2_sub
+        .point2
+          %p=@second_leader_score.point
+        .chip2
+          %p=@second_leader_score.chip
+      .name2.leader
+        %p=@second_leader.name
+    -else
+      .user2_sub
+        .point2
+          %p=@second_leader_score.point
+        .chip2
+          %p=@second_leader_score.chip
+      .name2
+        %p=@second_leader.name 
   
+  .center
+    %h1="#{round}#{@game.kyoku}局#{@game.honba}本場"
+    %h3="親: #{@current_leader.name}"
+  
+  .user4{"data-target" => "modal"} 
+    -if @fourth_leader.name == @current_leader.name
+      .name4.leader
+        %p=@fourth_leader.name
+      .user4_sub
+        .chip4
+          %p=@fourth_leader_score.chip
+        .point4  
+          %p=@fourth_leader_score.point
+    -else
+      .name4
+        %p=@fourth_leader.name
+      .user4_sub
+        .chip4
+          %p=@fourth_leader_score.chip
+        .point4  
+          %p=@fourth_leader_score.point
+      
+  .user3{"data-target" => "modal"}
+    -if @third_leader.name == @current_leader.name
+      .name3.leader
+        =@third_leader.name
+      .point3
+        =@third_leader_score.point
+      .chip3
+        =@third_leader_score.chip
+    -else
+      .name3
+        =@third_leader.name
+      .point3
+        =@third_leader_score.point
+      .chip3
+        =@third_leader_score.chip
+
+
+
+//////////////////  modal & accordion  //////////////////////////
+#modal.c-modal.js-modal 
+  .c-modal_bg.js-modal-close 
+  .c-modal_content
+    .c-modal_content_inner
+      %section.accordion
+        .menu.js-menu 
+          １飜役
+        .contents 
+          = check_box_tag '1-reach'
+          = label_tag '1-reach', Hand.to_ja('reach')
+          %br コンテンツ2
+        .menu.js-menu 
+          2 飜役
+        .contents 
+          コンテンツ2
+        .menu.js-menu
+          3 飜役
+        .contents 
+          コンテンツ3
+        .menu.js-menu
+          3 飜役
+        .contents 
+          コンテンツ3
+/////////////////////////////////////////////////////
+  
+
+/////////////////////////////////////////////////////
+//////
+////
+/                    debag
+/                                               ////
+/                                             //////
+////////////////////////////////////////////////////
+
 %p=@first_leader.to_json
 %p=@second_leader.to_json
 %p=@third_leader.to_json
@@ -39,13 +197,13 @@
       - elsif h == 'han'
         = select_tag label, options_for_select(han_num)
         = label_tag label, Hand.to_ja(h)
-      -elsif h == 'hu'
+      - elsif h == 'hu'
         = select_tag label, options_for_select(hu_num)
         = label_tag label, Hand.to_ja(h)
-      -elsif h == 'pon' || h =='chi' || h == 'ankan' || h =='kakan' || h == 'minkan'
+      - elsif h == 'pon' || h =='chi' || h == 'ankan' || h =='kakan' || h == 'minkan'
         = select_tag label, options_for_select(naki_num)
         = label_tag label, Hand.to_ja(h)
-      -elsif h == 'id' || h == 'created_at' || h == 'updated_at'
+      - elsif h == 'id' || h == 'created_at' || h == 'updated_at'
 
       - else
         = check_box_tag label
@@ -64,43 +222,3 @@
   = check_box_tag "drawn_game"
   = label_tag "drawn_game", "流局"
   = button_tag "データ送信", :type=>"button", :onclick=>"submit()", :class=>"btn btn-primary"
-
-
-
-%h1 対局画面
--round = @game.get_ja_round
-%h1="#{round}#{@game.kyoku}局#{@game.honba}本場"
-%h3="親: #{@current_leader.name}"
-.main
-  .user1
-    .name1
-      =@first_leader.name
-    .point1
-      =@first_leader_score.point
-    .chip1 
-      =@first_leader_score.chip
-  .user2
-    .user2_sub
-      .point2
-        %p=@second_leader_score.point
-      .chip2
-        %p=@second_leader_score.chip
-    .name2
-      %p=@second_leader.name
-  .center
-  .user4 
-    .name4
-      %p=@fourth_leader.name
-    .user4_sub
-      .chip4
-        %p=@fourth_leader_score.chip
-      .point4  
-        %p=@fourth_leader_score.point
-  .user3 
-    .name3
-      =@third_leader.name
-    .point3
-      =@third_leader_score.point
-    .chip3
-      =@third_leader_score.chip
-
