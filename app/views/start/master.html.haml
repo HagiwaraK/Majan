@@ -1,29 +1,29 @@
-/////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 //////
 ////
-/                 javascript
-/                                               ////
-/                                             //////
-////////////////////////////////////////////////////
+//                 javascript
+//                                               ////
+//                                             //////
+/////////////////////////////////////////////////////
 :javascript
   $(function() {
     $('.user1').click(function() {
-      $( '#modal' ).fadeIn( 300 );
+      $( '#modal1' ).fadeIn( 300 );
       return false;
     });
 
     $('.user2').on('click', function() {
-      $( '#modal' ).fadeIn( 300 );
+      $( '#modal2' ).fadeIn( 300 );
       return false;
     });
 
     $('.user3').on('click', function() {
-      $( '#modal' ).fadeIn( 300 );
+      $( '#modal3' ).fadeIn( 300 );
       return false;
     });
 
     $('.user4').on('click', function() {
-      $( '#modal' ).fadeIn( 300 );
+      $( '#modal4' ).fadeIn( 300 );
       return false;
     });
 
@@ -50,12 +50,17 @@
 /                                             //////
 ////////////////////////////////////////////////////
 
-//////////////////  main  //////////////////////////
+/////////////////////////////////////////////////////
+//////
+//           Majan Table and User Status
+//                                             //////
+/////////////////////////////////////////////////////
 %h1 対局画面
 -round = @game.get_ja_round
 
 .main
-  .user1{"data-target" => "modal"}
+  ///////////////////  User1 //////////////////////
+  .user1{"data-target" => "modal", "data-id" => @first_leader.id}
     -if @first_leader.name == @current_leader.name
       .name1.leader
         =@first_leader.name
@@ -70,7 +75,8 @@
         =@first_leader_score.point
       .chip1 
         =@first_leader_score.chip
-      
+    
+  ///////////////////  User2 //////////////////////
   .user2{"data-target" => "modal"}
     -if @second_leader.name == @current_leader.name
       .user2_sub
@@ -89,10 +95,12 @@
       .name2
         %p=@second_leader.name 
   
+  ///////////////////  Main table //////////////////////
   .center
     %h1="#{round}#{@game.kyoku}局#{@game.honba}本場"
     %h3="親: #{@current_leader.name}"
   
+  ///////////////////  User4 //////////////////////
   .user4{"data-target" => "modal"} 
     -if @fourth_leader.name == @current_leader.name
       .name4.leader
@@ -111,6 +119,7 @@
         .point4  
           %p=@fourth_leader_score.point
       
+  ///////////////////  User3 //////////////////////
   .user3{"data-target" => "modal"}
     -if @third_leader.name == @current_leader.name
       .name3.leader
@@ -129,32 +138,614 @@
 
 
 
-//////////////////  modal & accordion  //////////////////////////
-#modal.c-modal.js-modal 
+/////////////////////////////////////////////////////
+//////
+//        Modal and Accordion (Hand status)
+//                                             //////
+/////////////////////////////////////////////////////
+-lid1 = @first_leader.id
+-lid2 = @second_leader.id
+-lid3 = @third_leader.id
+-lid4 = @fourth_leader.id
+
+-han_num = [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+-hu_num = [0,20,25,30,40,50,60,70,80,90,100,110]
+-dora_num = [0,1,2,3,4,5,6,7,8,9,10]
+-naki_num = [0,1,2,3,4]
+-value_tiles_num = [0,1,2,3,4]
+
+
+///////////////////  For User1 //////////////////////
+#modal1.c-modal.js-modal 
   .c-modal_bg.js-modal-close 
   .c-modal_content
     .c-modal_content_inner
+      =@first_leader.name
       %section.accordion
         .menu.js-menu 
           １飜役
         .contents 
-          = check_box_tag '1-reach'
-          = label_tag '1-reach', Hand.to_ja('reach')
-          %br コンテンツ2
+          = check_box_tag "#{lid1}-reach"
+          = label_tag "#{lid1}-reach", Hand.to_ja('reach')
+          = check_box_tag "#{lid1}-all_simples"
+          = label_tag "#{lid1}-all_simples", Hand.to_ja('all_simples')
+          = check_box_tag "#{lid1}-all_runs"
+          = label_tag "#{lid1}-all_runs", Hand.to_ja('all_runs')
+          = check_box_tag "#{lid1}-self_draw"
+          = label_tag "#{lid1}-self_draw", Hand.to_ja('self_draw')
+          = check_box_tag "#{lid1}-first_turn_win"
+          = label_tag "#{lid1}-first_turn_win", Hand.to_ja('first_turn_win')
+          %br
+          = check_box_tag "#{lid1}-double_run"
+          = label_tag "#{lid1}-double_run", Hand.to_ja('double_run')
+          = check_box_tag "#{lid1}-haitei"
+          = label_tag "#{lid1}-haitei", Hand.to_ja('haitei')
+          = check_box_tag "#{lid1}-houtei"
+          = label_tag "#{lid1}-houtei", Hand.to_ja('houtei')
+          = check_box_tag "#{lid1}-kings_tile_draw"
+          = label_tag "#{lid1}-kings_tile_draw", Hand.to_ja('kings_tile_draw')
+          = check_box_tag "#{lid1}-add_a_quad"
+          = label_tag "#{lid1}-add_a_quad", Hand.to_ja('add_a_quad')
+          %br
+          = select_tag "#{lid1}-value_tiles", options_for_select(value_tiles_num)
+          = label_tag "#{lid1}-value_tiles", Hand.to_ja('value_tiles')
+          = select_tag "#{lid1}-dora", options_for_select(dora_num)
+          = label_tag "#{lid1}-dora", Hand.to_ja('dora')
+          = select_tag "#{lid1}-red_dora", options_for_select(dora_num)
+          = label_tag "#{lid1}-red_dora", Hand.to_ja('red_dora')
+          = select_tag "#{lid1}-ura_dora", options_for_select(dora_num)
+          = label_tag "#{lid1}-ura_dora", Hand.to_ja('ura_dora')
         .menu.js-menu 
           2 飜役
         .contents 
-          コンテンツ2
+          = check_box_tag "#{lid1}-double_reach"
+          = label_tag "#{lid1}-double_reach", Hand.to_ja('double_reach')
+          = check_box_tag "#{lid1}-seven_pairs"
+          = label_tag "#{lid1}-seven_pairs", Hand.to_ja('seven_pairs')
+          = check_box_tag "#{lid1}-all_triples"
+          = label_tag "#{lid1}-all_triples", Hand.to_ja('all_triples')
+          = check_box_tag "#{lid1}-three_color_runs"
+          = label_tag "#{lid1}-three_color_runs", Hand.to_ja('three_color_runs')
+          = check_box_tag "#{lid1}-three_color_triples"
+          = label_tag "#{lid1}-three_color_triples", Hand.to_ja('three_color_triples')
+          = check_box_tag "#{lid1}-three_concealed_triples"
+          = label_tag "#{lid1}-three_concealed_triples", Hand.to_ja('three_concealed_triples')
+          = check_box_tag "#{lid1}-three_continuous_triples"
+          = label_tag "#{lid1}-three_continuous_triples", Hand.to_ja('three_continuous_triples')
+          = check_box_tag "#{lid1}-three_quads"
+          = label_tag "#{lid1}-three_quads", Hand.to_ja('three_quads')
+          = check_box_tag "#{lid1}-full_straight"
+          = label_tag "#{lid1}-full_straight", Hand.to_ja('full_straight')
+          = check_box_tag "#{lid1}-mixed_outside_hand"
+          = label_tag "#{lid1}-mixed_outside_hand", Hand.to_ja('mixed_outside_hand')
+          = check_box_tag "#{lid1}-all_terminals_and_honors"
+          = label_tag "#{lid1}-all_terminals_and_honors", Hand.to_ja('all_terminals_and_honors')
+          = check_box_tag "#{lid1}-little_dragons"
+          = label_tag "#{lid1}-little_dragons", Hand.to_ja('little_dragons')
         .menu.js-menu
           3 飜役
         .contents 
-          コンテンツ3
+          = check_box_tag "#{lid1}-hand_flush"
+          = label_tag "#{lid1}-hand_flush", Hand.to_ja('hand_flush')
+          = check_box_tag "#{lid1}-pure_outside_hand"
+          = label_tag "#{lid1}-pure_outside_hand", Hand.to_ja('pure_outside_hand')
+          = check_box_tag "#{lid1}-two_double_runs"
+          = label_tag "#{lid1}-two_double_runs", Hand.to_ja('two_double_runs')
+        .menu.js-menu
+          6 飜役
+        .contents 
+          = check_box_tag "#{lid1}-full_flush"
+          = label_tag "#{lid1}-full_flush", Hand.to_ja('full_flush')
+        .menu.js-menu 
+          役満
+        .contents
+          = check_box_tag "#{lid1}-thirteen_orphans"
+          = label_tag "#{lid1}-thirteen_orphans", Hand.to_ja('thirteen_orphans')
+          = check_box_tag "#{lid1}-four_concealed_triples"
+          = label_tag "#{lid1}-four_concealed_triples", Hand.to_ja('four_concealed_triples')
+          = check_box_tag "#{lid1}-four_continuous_triples"
+          = label_tag "#{lid1}-four_continuous_triples", Hand.to_ja('four_continuous_triples')
+          = check_box_tag "#{lid1}-four_quads"
+          = label_tag "#{lid1}-four_quads", Hand.to_ja('four_quads')
+          = check_box_tag "#{lid1}-small_four_winds"
+          = label_tag "#{lid1}-small_four_winds", Hand.to_ja('small_four_winds')
+          = check_box_tag "#{lid1}-big_dragons"
+          = label_tag "#{lid1}-big_dragons", Hand.to_ja('big_dragons')
+          %br
+          = check_box_tag "#{lid1}-all_honors"
+          = label_tag "#{lid1}-all_honors", Hand.to_ja('all_honors')
+          = check_box_tag "#{lid1}-all_terminals"
+          = label_tag "#{lid1}-all_terminals", Hand.to_ja('all_terminals')
+          = check_box_tag "#{lid1}-all_green"
+          = label_tag "#{lid1}-all_green", Hand.to_ja('all_green')
+          = check_box_tag "#{lid1}-nine_gates"
+          = label_tag "#{lid1}-nine_gates", Hand.to_ja('nine_gates')
+          = check_box_tag "#{lid1}-blessing_of_earth"
+          = label_tag "#{lid1}-blessing_of_earth", Hand.to_ja('blessing_of_earth')
+          = check_box_tag "#{lid1}-blessing_of_person"
+          = label_tag "#{lid1}-blessing_of_person", Hand.to_ja('blessing_of_person')
+          = check_box_tag "#{lid1}-blessing_of_heaven"
+          = label_tag "#{lid1}-blessing_of_heaven", Hand.to_ja('blessing_of_heaven')
+        .menu.js-menu 
+          ダブル役満
+        .contents 
+          = check_box_tag "#{lid1}-all_waitting_thirteen_orphans"
+          = label_tag "#{lid1}-all_waitting_thirteen_orphans", Hand.to_ja('all_waitting_thirteen_orphans')
+          = check_box_tag "#{lid1}-suttan"
+          = label_tag "#{lid1}-suttan", Hand.to_ja('suttan')
+          = check_box_tag "#{lid1}-big_four_winds"
+          = label_tag "#{lid1}-big_four_winds", Hand.to_ja('big_four_winds')
+          = check_box_tag "#{lid1}-pure_nine_gates"
+          = label_tag "#{lid1}-pure_nine_gates", Hand.to_ja('pure_nine_gates')
+        .menu.js-menu 
+          ステータス
+        .contents 
+          = check_box_tag "#{lid1}-tenpai"
+          = label_tag "#{lid1}-tenpai", Hand.to_ja('tenpai')
+          = select_tag "#{lid1}-han", options_for_select(han_num)
+          = label_tag "#{lid1}-han", Hand.to_ja('han')
+          = select_tag "#{lid1}-hu", options_for_select(hu_num)
+          = label_tag "#{lid1}-hu", Hand.to_ja('hu')
+          %br
+          = check_box_tag "#{lid1}-open"
+          = label_tag "#{lid1}-open", Hand.to_ja('open')
+          = select_tag "#{lid1}-pon", options_for_select(naki_num)
+          = label_tag "#{lid1}-pon", Hand.to_ja('pon')
+          = select_tag "#{lid1}-chi", options_for_select(naki_num)
+          = label_tag "#{lid1}-chi", Hand.to_ja('chi')
+          %br
+          = select_tag "#{lid1}-ankan", options_for_select(naki_num)
+          = label_tag "#{lid1}-ankan", Hand.to_ja('ankan')
+          = select_tag "#{lid1}-kakan", options_for_select(naki_num)
+          = label_tag "#{lid1}-kakan", Hand.to_ja('kakan')
+          = select_tag "#{lid1}-minkan", options_for_select(naki_num)
+          = label_tag "#{lid1}-minkan", Hand.to_ja('minkan')
+      
+
+
+///////////////////  For User2 //////////////////////
+#modal2.c-modal.js-modal 
+  .c-modal_bg.js-modal-close 
+  .c-modal_content
+    .c-modal_content_inner
+      =@second_leader.name
+      %section.accordion
+        .menu.js-menu 
+          １飜役
+        .contents 
+          = check_box_tag "#{lid2}-reach"
+          = label_tag "#{lid2}-reach", Hand.to_ja('reach')
+          = check_box_tag "#{lid2}-all_simples"
+          = label_tag "#{lid2}-all_simples", Hand.to_ja('all_simples')
+          = check_box_tag "#{lid2}-all_runs"
+          = label_tag "#{lid2}-all_runs", Hand.to_ja('all_runs')
+          = check_box_tag "#{lid2}-self_draw"
+          = label_tag "#{lid2}-self_draw", Hand.to_ja('self_draw')
+          = check_box_tag "#{lid2}-first_turn_win"
+          = label_tag "#{lid2}-first_turn_win", Hand.to_ja('first_turn_win')
+          %br
+          = check_box_tag "#{lid2}-double_run"
+          = label_tag "#{lid2}-double_run", Hand.to_ja('double_run')
+          = check_box_tag "#{lid2}-haitei"
+          = label_tag "#{lid2}-haitei", Hand.to_ja('haitei')
+          = check_box_tag "#{lid2}-houtei"
+          = label_tag "#{lid2}-houtei", Hand.to_ja('houtei')
+          = check_box_tag "#{lid2}-kings_tile_draw"
+          = label_tag "#{lid2}-kings_tile_draw", Hand.to_ja('kings_tile_draw')
+          = check_box_tag "#{lid2}-add_a_quad"
+          = label_tag "#{lid2}-add_a_quad", Hand.to_ja('add_a_quad')
+          %br
+          = select_tag "#{lid2}-value_tiles", options_for_select(value_tiles_num)
+          = label_tag "#{lid2}-value_tiles", Hand.to_ja('value_tiles')
+          = select_tag "#{lid2}-dora", options_for_select(dora_num)
+          = label_tag "#{lid2}-dora", Hand.to_ja('dora')
+          = select_tag "#{lid2}-red_dora", options_for_select(dora_num)
+          = label_tag "#{lid2}-red_dora", Hand.to_ja('red_dora')
+          = select_tag "#{lid2}-ura_dora", options_for_select(dora_num)
+          = label_tag "#{lid2}-ura_dora", Hand.to_ja('ura_dora')
+        .menu.js-menu 
+          2 飜役
+        .contents 
+          = check_box_tag "#{lid2}-double_reach"
+          = label_tag "#{lid2}-double_reach", Hand.to_ja('double_reach')
+          = check_box_tag "#{lid2}-seven_pairs"
+          = label_tag "#{lid2}-seven_pairs", Hand.to_ja('seven_pairs')
+          = check_box_tag "#{lid2}-all_triples"
+          = label_tag "#{lid2}-all_triples", Hand.to_ja('all_triples')
+          = check_box_tag "#{lid2}-three_color_runs"
+          = label_tag "#{lid2}-three_color_runs", Hand.to_ja('three_color_runs')
+          = check_box_tag "#{lid2}-three_color_triples"
+          = label_tag "#{lid2}-three_color_triples", Hand.to_ja('three_color_triples')
+          = check_box_tag "#{lid2}-three_concealed_triples"
+          = label_tag "#{lid2}-three_concealed_triples", Hand.to_ja('three_concealed_triples')
+          = check_box_tag "#{lid2}-three_continuous_triples"
+          = label_tag "#{lid2}-three_continuous_triples", Hand.to_ja('three_continuous_triples')
+          = check_box_tag "#{lid2}-three_quads"
+          = label_tag "#{lid2}-three_quads", Hand.to_ja('three_quads')
+          = check_box_tag "#{lid2}-full_straight"
+          = label_tag "#{lid2}-full_straight", Hand.to_ja('full_straight')
+          = check_box_tag "#{lid2}-mixed_outside_hand"
+          = label_tag "#{lid2}-mixed_outside_hand", Hand.to_ja('mixed_outside_hand')
+          = check_box_tag "#{lid2}-all_terminals_and_honors"
+          = label_tag "#{lid2}-all_terminals_and_honors", Hand.to_ja('all_terminals_and_honors')
+          = check_box_tag "#{lid2}-little_dragons"
+          = label_tag "#{lid2}-little_dragons", Hand.to_ja('little_dragons')
         .menu.js-menu
           3 飜役
         .contents 
-          コンテンツ3
-/////////////////////////////////////////////////////
-  
+          = check_box_tag "#{lid2}-hand_flush"
+          = label_tag "#{lid2}-hand_flush", Hand.to_ja('hand_flush')
+          = check_box_tag "#{lid2}-pure_outside_hand"
+          = label_tag "#{lid2}-pure_outside_hand", Hand.to_ja('pure_outside_hand')
+          = check_box_tag "#{lid2}-two_double_runs"
+          = label_tag "#{lid2}-two_double_runs", Hand.to_ja('two_double_runs')
+        .menu.js-menu
+          6 飜役
+        .contents 
+          = check_box_tag "#{lid2}-full_flush"
+          = label_tag "#{lid2}-full_flush", Hand.to_ja('full_flush')
+        .menu.js-menu 
+          役満
+        .contents
+          = check_box_tag "#{lid2}-thirteen_orphans"
+          = label_tag "#{lid2}-thirteen_orphans", Hand.to_ja('thirteen_orphans')
+          = check_box_tag "#{lid2}-four_concealed_triples"
+          = label_tag "#{lid2}-four_concealed_triples", Hand.to_ja('four_concealed_triples')
+          = check_box_tag "#{lid2}-four_continuous_triples"
+          = label_tag "#{lid2}-four_continuous_triples", Hand.to_ja('four_continuous_triples')
+          = check_box_tag "#{lid2}-four_quads"
+          = label_tag "#{lid2}-four_quads", Hand.to_ja('four_quads')
+          = check_box_tag "#{lid2}-small_four_winds"
+          = label_tag "#{lid2}-small_four_winds", Hand.to_ja('small_four_winds')
+          = check_box_tag "#{lid2}-big_dragons"
+          = label_tag "#{lid2}-big_dragons", Hand.to_ja('big_dragons')
+          %br
+          = check_box_tag "#{lid2}-all_honors"
+          = label_tag "#{lid2}-all_honors", Hand.to_ja('all_honors')
+          = check_box_tag "#{lid2}-all_terminals"
+          = label_tag "#{lid2}-all_terminals", Hand.to_ja('all_terminals')
+          = check_box_tag "#{lid2}-all_green"
+          = label_tag "#{lid2}-all_green", Hand.to_ja('all_green')
+          = check_box_tag "#{lid2}-nine_gates"
+          = label_tag "#{lid2}-nine_gates", Hand.to_ja('nine_gates')
+          = check_box_tag "#{lid2}-blessing_of_earth"
+          = label_tag "#{lid2}-blessing_of_earth", Hand.to_ja('blessing_of_earth')
+          = check_box_tag "#{lid2}-blessing_of_person"
+          = label_tag "#{lid2}-blessing_of_person", Hand.to_ja('blessing_of_person')
+          = check_box_tag "#{lid2}-blessing_of_heaven"
+          = label_tag "#{lid2}-blessing_of_heaven", Hand.to_ja('blessing_of_heaven')
+        .menu.js-menu 
+          ダブル役満
+        .contents 
+          = check_box_tag "#{lid2}-all_waitting_thirteen_orphans"
+          = label_tag "#{lid2}-all_waitting_thirteen_orphans", Hand.to_ja('all_waitting_thirteen_orphans')
+          = check_box_tag "#{lid2}-suttan"
+          = label_tag "#{lid2}-suttan", Hand.to_ja('suttan')
+          = check_box_tag "#{lid2}-big_four_winds"
+          = label_tag "#{lid2}-big_four_winds", Hand.to_ja('big_four_winds')
+          = check_box_tag "#{lid2}-pure_nine_gates"
+          = label_tag "#{lid2}-pure_nine_gates", Hand.to_ja('pure_nine_gates')
+        .menu.js-menu 
+          ステータス
+        .contents 
+          = check_box_tag "#{lid2}-tenpai"
+          = label_tag "#{lid2}-tenpai", Hand.to_ja('tenpai')
+          = select_tag "#{lid2}-han", options_for_select(han_num)
+          = label_tag "#{lid2}-han", Hand.to_ja('han')
+          = select_tag "#{lid2}-hu", options_for_select(hu_num)
+          = label_tag "#{lid2}-hu", Hand.to_ja('hu')
+          %br
+          = check_box_tag "#{lid2}-open"
+          = label_tag "#{lid2}-open", Hand.to_ja('open')
+          = select_tag "#{lid2}-pon", options_for_select(naki_num)
+          = label_tag "#{lid2}-pon", Hand.to_ja('pon')
+          = select_tag "#{lid2}-chi", options_for_select(naki_num)
+          = label_tag "#{lid2}-chi", Hand.to_ja('chi')
+          %br
+          = select_tag "#{lid2}-ankan", options_for_select(naki_num)
+          = label_tag "#{lid2}-ankan", Hand.to_ja('ankan')
+          = select_tag "#{lid2}-kakan", options_for_select(naki_num)
+          = label_tag "#{lid2}-kakan", Hand.to_ja('kakan')
+          = select_tag "#{lid2}-minkan", options_for_select(naki_num)
+          = label_tag "#{lid2}-minkan", Hand.to_ja('minkan')
+
+
+///////////////////  For User3 //////////////////////
+#modal3.c-modal.js-modal 
+  .c-modal_bg.js-modal-close 
+  .c-modal_content
+    .c-modal_content_inner
+      =@third_leader.name
+      %section.accordion
+        .menu.js-menu 
+          １飜役
+        .contents 
+          = check_box_tag "#{lid3}-reach"
+          = label_tag "#{lid3}-reach", Hand.to_ja('reach')
+          = check_box_tag "#{lid3}-all_simples"
+          = label_tag "#{lid3}-all_simples", Hand.to_ja('all_simples')
+          = check_box_tag "#{lid3}-all_runs"
+          = label_tag "#{lid3}-all_runs", Hand.to_ja('all_runs')
+          = check_box_tag "#{lid3}-self_draw"
+          = label_tag "#{lid3}-self_draw", Hand.to_ja('self_draw')
+          = check_box_tag "#{lid3}-first_turn_win"
+          = label_tag "#{lid3}-first_turn_win", Hand.to_ja('first_turn_win')
+          %br
+          = check_box_tag "#{lid3}-double_run"
+          = label_tag "#{lid3}-double_run", Hand.to_ja('double_run')
+          = check_box_tag "#{lid3}-haitei"
+          = label_tag "#{lid3}-haitei", Hand.to_ja('haitei')
+          = check_box_tag "#{lid3}-houtei"
+          = label_tag "#{lid3}-houtei", Hand.to_ja('houtei')
+          = check_box_tag "#{lid3}-kings_tile_draw"
+          = label_tag "#{lid3}-kings_tile_draw", Hand.to_ja('kings_tile_draw')
+          = check_box_tag "#{lid3}-add_a_quad"
+          = label_tag "#{lid3}-add_a_quad", Hand.to_ja('add_a_quad')
+          %br
+          = select_tag "#{lid3}-value_tiles", options_for_select(value_tiles_num)
+          = label_tag "#{lid3}-value_tiles", Hand.to_ja('value_tiles')
+          = select_tag "#{lid3}-dora", options_for_select(dora_num)
+          = label_tag "#{lid3}-dora", Hand.to_ja('dora')
+          = select_tag "#{lid3}-red_dora", options_for_select(dora_num)
+          = label_tag "#{lid3}-red_dora", Hand.to_ja('red_dora')
+          = select_tag "#{lid3}-ura_dora", options_for_select(dora_num)
+          = label_tag "#{lid3}-ura_dora", Hand.to_ja('ura_dora')
+        .menu.js-menu 
+          2 飜役
+        .contents 
+          = check_box_tag "#{lid3}-double_reach"
+          = label_tag "#{lid3}-double_reach", Hand.to_ja('double_reach')
+          = check_box_tag "#{lid3}-seven_pairs"
+          = label_tag "#{lid3}-seven_pairs", Hand.to_ja('seven_pairs')
+          = check_box_tag "#{lid3}-all_triples"
+          = label_tag "#{lid3}-all_triples", Hand.to_ja('all_triples')
+          = check_box_tag "#{lid3}-three_color_runs"
+          = label_tag "#{lid3}-three_color_runs", Hand.to_ja('three_color_runs')
+          = check_box_tag "#{lid3}-three_color_triples"
+          = label_tag "#{lid3}-three_color_triples", Hand.to_ja('three_color_triples')
+          = check_box_tag "#{lid3}-three_concealed_triples"
+          = label_tag "#{lid3}-three_concealed_triples", Hand.to_ja('three_concealed_triples')
+          = check_box_tag "#{lid3}-three_continuous_triples"
+          = label_tag "#{lid3}-three_continuous_triples", Hand.to_ja('three_continuous_triples')
+          = check_box_tag "#{lid3}-three_quads"
+          = label_tag "#{lid3}-three_quads", Hand.to_ja('three_quads')
+          = check_box_tag "#{lid3}-full_straight"
+          = label_tag "#{lid3}-full_straight", Hand.to_ja('full_straight')
+          = check_box_tag "#{lid3}-mixed_outside_hand"
+          = label_tag "#{lid3}-mixed_outside_hand", Hand.to_ja('mixed_outside_hand')
+          = check_box_tag "#{lid3}-all_terminals_and_honors"
+          = label_tag "#{lid3}-all_terminals_and_honors", Hand.to_ja('all_terminals_and_honors')
+          = check_box_tag "#{lid3}-little_dragons"
+          = label_tag "#{lid3}-little_dragons", Hand.to_ja('little_dragons')
+        .menu.js-menu
+          3 飜役
+        .contents 
+          = check_box_tag "#{lid3}-hand_flush"
+          = label_tag "#{lid3}-hand_flush", Hand.to_ja('hand_flush')
+          = check_box_tag "#{lid3}-pure_outside_hand"
+          = label_tag "#{lid3}-pure_outside_hand", Hand.to_ja('pure_outside_hand')
+          = check_box_tag "#{lid3}-two_double_runs"
+          = label_tag "#{lid3}-two_double_runs", Hand.to_ja('two_double_runs')
+        .menu.js-menu
+          6 飜役
+        .contents 
+          = check_box_tag "#{lid3}-full_flush"
+          = label_tag "#{lid3}-full_flush", Hand.to_ja('full_flush')
+        .menu.js-menu 
+          役満
+        .contents
+          = check_box_tag "#{lid3}-thirteen_orphans"
+          = label_tag "#{lid3}-thirteen_orphans", Hand.to_ja('thirteen_orphans')
+          = check_box_tag "#{lid3}-four_concealed_triples"
+          = label_tag "#{lid3}-four_concealed_triples", Hand.to_ja('four_concealed_triples')
+          = check_box_tag "#{lid3}-four_continuous_triples"
+          = label_tag "#{lid3}-four_continuous_triples", Hand.to_ja('four_continuous_triples')
+          = check_box_tag "#{lid3}-four_quads"
+          = label_tag "#{lid3}-four_quads", Hand.to_ja('four_quads')
+          = check_box_tag "#{lid3}-small_four_winds"
+          = label_tag "#{lid3}-small_four_winds", Hand.to_ja('small_four_winds')
+          = check_box_tag "#{lid3}-big_dragons"
+          = label_tag "#{lid3}-big_dragons", Hand.to_ja('big_dragons')
+          %br
+          = check_box_tag "#{lid3}-all_honors"
+          = label_tag "#{lid3}-all_honors", Hand.to_ja('all_honors')
+          = check_box_tag "#{lid3}-all_terminals"
+          = label_tag "#{lid3}-all_terminals", Hand.to_ja('all_terminals')
+          = check_box_tag "#{lid3}-all_green"
+          = label_tag "#{lid3}-all_green", Hand.to_ja('all_green')
+          = check_box_tag "#{lid3}-nine_gates"
+          = label_tag "#{lid3}-nine_gates", Hand.to_ja('nine_gates')
+          = check_box_tag "#{lid3}-blessing_of_earth"
+          = label_tag "#{lid3}-blessing_of_earth", Hand.to_ja('blessing_of_earth')
+          = check_box_tag "#{lid3}-blessing_of_person"
+          = label_tag "#{lid3}-blessing_of_person", Hand.to_ja('blessing_of_person')
+          = check_box_tag "#{lid3}-blessing_of_heaven"
+          = label_tag "#{lid3}-blessing_of_heaven", Hand.to_ja('blessing_of_heaven')
+        .menu.js-menu 
+          ダブル役満
+        .contents 
+          = check_box_tag "#{lid3}-all_waitting_thirteen_orphans"
+          = label_tag "#{lid3}-all_waitting_thirteen_orphans", Hand.to_ja('all_waitting_thirteen_orphans')
+          = check_box_tag "#{lid3}-suttan"
+          = label_tag "#{lid3}-suttan", Hand.to_ja('suttan')
+          = check_box_tag "#{lid3}-big_four_winds"
+          = label_tag "#{lid3}-big_four_winds", Hand.to_ja('big_four_winds')
+          = check_box_tag "#{lid3}-pure_nine_gates"
+          = label_tag "#{lid3}-pure_nine_gates", Hand.to_ja('pure_nine_gates')
+        .menu.js-menu 
+          ステータス
+        .contents 
+          = check_box_tag "#{lid3}-tenpai"
+          = label_tag "#{lid3}-tenpai", Hand.to_ja('tenpai')
+          = select_tag "#{lid3}-han", options_for_select(han_num)
+          = label_tag "#{lid3}-han", Hand.to_ja('han')
+          = select_tag "#{lid3}-hu", options_for_select(hu_num)
+          = label_tag "#{lid3}-hu", Hand.to_ja('hu')
+          %br
+          = check_box_tag "#{lid3}-open"
+          = label_tag "#{lid3}-open", Hand.to_ja('open')
+          = select_tag "#{lid3}-pon", options_for_select(naki_num)
+          = label_tag "#{lid3}-pon", Hand.to_ja('pon')
+          = select_tag "#{lid3}-chi", options_for_select(naki_num)
+          = label_tag "#{lid3}-chi", Hand.to_ja('chi')
+          %br
+          = select_tag "#{lid3}-ankan", options_for_select(naki_num)
+          = label_tag "#{lid3}-ankan", Hand.to_ja('ankan')
+          = select_tag "#{lid3}-kakan", options_for_select(naki_num)
+          = label_tag "#{lid3}-kakan", Hand.to_ja('kakan')
+          = select_tag "#{lid3}-minkan", options_for_select(naki_num)
+          = label_tag "#{lid3}-minkan", Hand.to_ja('minkan')
+
+
+///////////////////  For User4 //////////////////////
+#modal4.c-modal.js-modal 
+  .c-modal_bg.js-modal-close 
+  .c-modal_content
+    .c-modal_content_inner
+      =@fourth_leader.name
+      %section.accordion
+        .menu.js-menu 
+          １飜役
+        .contents 
+          = check_box_tag "#{lid4}-reach"
+          = label_tag "#{lid4}-reach", Hand.to_ja('reach')
+          = check_box_tag "#{lid4}-all_simples"
+          = label_tag "#{lid4}-all_simples", Hand.to_ja('all_simples')
+          = check_box_tag "#{lid4}-all_runs"
+          = label_tag "#{lid4}-all_runs", Hand.to_ja('all_runs')
+          = check_box_tag "#{lid4}-self_draw"
+          = label_tag "#{lid4}-self_draw", Hand.to_ja('self_draw')
+          = check_box_tag "#{lid4}-first_turn_win"
+          = label_tag "#{lid4}-first_turn_win", Hand.to_ja('first_turn_win')
+          %br
+          = check_box_tag "#{lid4}-double_run"
+          = label_tag "#{lid4}-double_run", Hand.to_ja('double_run')
+          = check_box_tag "#{lid4}-haitei"
+          = label_tag "#{lid4}-haitei", Hand.to_ja('haitei')
+          = check_box_tag "#{lid4}-houtei"
+          = label_tag "#{lid4}-houtei", Hand.to_ja('houtei')
+          = check_box_tag "#{lid4}-kings_tile_draw"
+          = label_tag "#{lid4}-kings_tile_draw", Hand.to_ja('kings_tile_draw')
+          = check_box_tag "#{lid4}-add_a_quad"
+          = label_tag "#{lid4}-add_a_quad", Hand.to_ja('add_a_quad')
+          %br
+          = select_tag "#{lid4}-value_tiles", options_for_select(value_tiles_num)
+          = label_tag "#{lid4}-value_tiles", Hand.to_ja('value_tiles')
+          = select_tag "#{lid4}-dora", options_for_select(dora_num)
+          = label_tag "#{lid4}-dora", Hand.to_ja('dora')
+          = select_tag "#{lid4}-red_dora", options_for_select(dora_num)
+          = label_tag "#{lid4}-red_dora", Hand.to_ja('red_dora')
+          = select_tag "#{lid4}-ura_dora", options_for_select(dora_num)
+          = label_tag "#{lid4}-ura_dora", Hand.to_ja('ura_dora')
+        .menu.js-menu 
+          2 飜役
+        .contents 
+          = check_box_tag "#{lid4}-double_reach"
+          = label_tag "#{lid4}-double_reach", Hand.to_ja('double_reach')
+          = check_box_tag "#{lid4}-seven_pairs"
+          = label_tag "#{lid4}-seven_pairs", Hand.to_ja('seven_pairs')
+          = check_box_tag "#{lid4}-all_triples"
+          = label_tag "#{lid4}-all_triples", Hand.to_ja('all_triples')
+          = check_box_tag "#{lid4}-three_color_runs"
+          = label_tag "#{lid4}-three_color_runs", Hand.to_ja('three_color_runs')
+          = check_box_tag "#{lid4}-three_color_triples"
+          = label_tag "#{lid4}-three_color_triples", Hand.to_ja('three_color_triples')
+          = check_box_tag "#{lid4}-three_concealed_triples"
+          = label_tag "#{lid4}-three_concealed_triples", Hand.to_ja('three_concealed_triples')
+          = check_box_tag "#{lid4}-three_continuous_triples"
+          = label_tag "#{lid4}-three_continuous_triples", Hand.to_ja('three_continuous_triples')
+          = check_box_tag "#{lid4}-three_quads"
+          = label_tag "#{lid4}-three_quads", Hand.to_ja('three_quads')
+          = check_box_tag "#{lid4}-full_straight"
+          = label_tag "#{lid4}-full_straight", Hand.to_ja('full_straight')
+          = check_box_tag "#{lid4}-mixed_outside_hand"
+          = label_tag "#{lid4}-mixed_outside_hand", Hand.to_ja('mixed_outside_hand')
+          = check_box_tag "#{lid4}-all_terminals_and_honors"
+          = label_tag "#{lid4}-all_terminals_and_honors", Hand.to_ja('all_terminals_and_honors')
+          = check_box_tag "#{lid4}-little_dragons"
+          = label_tag "#{lid4}-little_dragons", Hand.to_ja('little_dragons')
+        .menu.js-menu
+          3 飜役
+        .contents 
+          = check_box_tag "#{lid4}-hand_flush"
+          = label_tag "#{lid4}-hand_flush", Hand.to_ja('hand_flush')
+          = check_box_tag "#{lid4}-pure_outside_hand"
+          = label_tag "#{lid4}-pure_outside_hand", Hand.to_ja('pure_outside_hand')
+          = check_box_tag "#{lid4}-two_double_runs"
+          = label_tag "#{lid4}-two_double_runs", Hand.to_ja('two_double_runs')
+        .menu.js-menu
+          6 飜役
+        .contents 
+          = check_box_tag "#{lid4}-full_flush"
+          = label_tag "#{lid4}-full_flush", Hand.to_ja('full_flush')
+        .menu.js-menu 
+          役満
+        .contents
+          = check_box_tag "#{lid4}-thirteen_orphans"
+          = label_tag "#{lid4}-thirteen_orphans", Hand.to_ja('thirteen_orphans')
+          = check_box_tag "#{lid4}-four_concealed_triples"
+          = label_tag "#{lid4}-four_concealed_triples", Hand.to_ja('four_concealed_triples')
+          = check_box_tag "#{lid4}-four_continuous_triples"
+          = label_tag "#{lid4}-four_continuous_triples", Hand.to_ja('four_continuous_triples')
+          = check_box_tag "#{lid4}-four_quads"
+          = label_tag "#{lid4}-four_quads", Hand.to_ja('four_quads')
+          = check_box_tag "#{lid4}-small_four_winds"
+          = label_tag "#{lid4}-small_four_winds", Hand.to_ja('small_four_winds')
+          = check_box_tag "#{lid4}-big_dragons"
+          = label_tag "#{lid4}-big_dragons", Hand.to_ja('big_dragons')
+          %br
+          = check_box_tag "#{lid4}-all_honors"
+          = label_tag "#{lid4}-all_honors", Hand.to_ja('all_honors')
+          = check_box_tag "#{lid4}-all_terminals"
+          = label_tag "#{lid4}-all_terminals", Hand.to_ja('all_terminals')
+          = check_box_tag "#{lid4}-all_green"
+          = label_tag "#{lid4}-all_green", Hand.to_ja('all_green')
+          = check_box_tag "#{lid4}-nine_gates"
+          = label_tag "#{lid4}-nine_gates", Hand.to_ja('nine_gates')
+          = check_box_tag "#{lid4}-blessing_of_earth"
+          = label_tag "#{lid4}-blessing_of_earth", Hand.to_ja('blessing_of_earth')
+          = check_box_tag "#{lid4}-blessing_of_person"
+          = label_tag "#{lid4}-blessing_of_person", Hand.to_ja('blessing_of_person')
+          = check_box_tag "#{lid4}-blessing_of_heaven"
+          = label_tag "#{lid4}-blessing_of_heaven", Hand.to_ja('blessing_of_heaven')
+        .menu.js-menu 
+          ダブル役満
+        .contents 
+          = check_box_tag "#{lid4}-all_waitting_thirteen_orphans"
+          = label_tag "#{lid4}-all_waitting_thirteen_orphans", Hand.to_ja('all_waitting_thirteen_orphans')
+          = check_box_tag "#{lid4}-suttan"
+          = label_tag "#{lid4}-suttan", Hand.to_ja('suttan')
+          = check_box_tag "#{lid4}-big_four_winds"
+          = label_tag "#{lid4}-big_four_winds", Hand.to_ja('big_four_winds')
+          = check_box_tag "#{lid4}-pure_nine_gates"
+          = label_tag "#{lid4}-pure_nine_gates", Hand.to_ja('pure_nine_gates')
+        .menu.js-menu 
+          ステータス
+        .contents 
+          = check_box_tag "#{lid4}-tenpai"
+          = label_tag "#{lid4}-tenpai", Hand.to_ja('tenpai')
+          = select_tag "#{lid4}-han", options_for_select(han_num)
+          = label_tag "#{lid4}-han", Hand.to_ja('han')
+          = select_tag "#{lid4}-hu", options_for_select(hu_num)
+          = label_tag "#{lid4}-hu", Hand.to_ja('hu')
+          %br
+          = check_box_tag "#{lid4}-open"
+          = label_tag "#{lid4}-open", Hand.to_ja('open')
+          = select_tag "#{lid4}-pon", options_for_select(naki_num)
+          = label_tag "#{lid4}-pon", Hand.to_ja('pon')
+          = select_tag "#{lid4}-chi", options_for_select(naki_num)
+          = label_tag "#{lid4}-chi", Hand.to_ja('chi')
+          %br
+          = select_tag "#{lid4}-ankan", options_for_select(naki_num)
+          = label_tag "#{lid4}-ankan", Hand.to_ja('ankan')
+          = select_tag "#{lid4}-kakan", options_for_select(naki_num)
+          = label_tag "#{lid4}-kakan", Hand.to_ja('kakan')
+          = select_tag "#{lid4}-minkan", options_for_select(naki_num)
+          = label_tag "#{lid4}-minkan", Hand.to_ja('minkan')
+
+
+
+
 
 /////////////////////////////////////////////////////
 //////
@@ -174,12 +765,6 @@
 %p=@second_leader_score.to_json
 %p=@third_leader_score.to_json
 %p=@fourth_leader_score.to_json
-
--han_num = [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
--hu_num = [0,20,25,30,40,50,60,70,80,90,100,110]
--dora_num = [0,1,2,3,4,5,6,7,8,9,10]
--naki_num = [0,1,2,3,4]
--value_tiles_num = [0,1,2,3,4]
 
 -member = [@first_leader, @second_leader, @third_leader, @fourth_leader]
 -member.each do |leader|

@@ -97,5 +97,7 @@ class StartController < ApplicationController
       end
       return round, kyoku, honba
     end
+
+    
 end
 
