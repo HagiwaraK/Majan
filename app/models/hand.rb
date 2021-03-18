@@ -1,7 +1,7 @@
 class Hand < ApplicationRecord
 	enum column_name_and_ja: {"reach": "立直", "value_tiles": "役牌", "all_simples": "断ヤオ九",
 								"all_runs": "平和", "self_draw": "門前自摸", "first_turn_win": "一発", "double_run": "一盃口",
-								"haitei": "河底撈魚", "houtei": "海底摸月", "kings_tile_draw": "嶺上開花", "double_reach": "二重立直",
+								"haitei": "海底摸月", "houtei": "河底撈魚", "kings_tile_draw": "嶺上開花", "double_reach": "二重立直",
 								"add_a_quad": "搶槓", "dora": "ドラ", "red_dora": "赤ドラ", "ura_dora": "裏ドラ", "all_triples": "対々和",
 								"three_color_runs": "三色同順", "seven_pairs": "七対子", "full_straight": "一気通貫", "mixed_outside_hand": "混全帯",
 								"three_concealed_triples": "三暗刻", "little_dragons": "小三元", "all_terminals_and_honors": "混老頭",
