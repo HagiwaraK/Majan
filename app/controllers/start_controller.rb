@@ -39,6 +39,7 @@ class StartController < ApplicationController
     @half_round = HalfRound.find(params[:half_round_id].to_i)
     get_players
     previous_game = Game.find(params[:game_id].to_i)
+    process_results previous_game
     round, kyoku, honba = get_current_r_k_h(previous_game)
     @game = Game.new(
       honba:honba, round:round, half_round_id: @half_round.id, kyoku: kyoku
@@ -96,6 +97,19 @@ class StartController < ApplicationController
         honba += 1
       end
       return round, kyoku, honba
+    end
+
+    def process_results prev_game
+      save_hands
+    end
+
+    def save_hands
+      leaders_id_list = [@first_leader.id, @second_leader.id, @third_leader.id, @fourth_leader.id]
+      print("============================")
+      print(leaders_id_list)
+      hand_column_names = Hand.column_names
+      print(hand_column_names)
+      print("============================")
     end
 end
 
