@@ -23,6 +23,7 @@ class Hand < ApplicationRecord
 		column_names.delete("id")
 		column_names.delete("created_at")
 		column_names.delete("updated_at")
+		column_names.delete("column_name_and_ja")
 		return column_names
 	end
 end
