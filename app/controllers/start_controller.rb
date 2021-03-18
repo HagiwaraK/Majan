@@ -53,7 +53,7 @@ class StartController < ApplicationController
 
     calc = Calculate.new()
     print('####################')
-    print(calc.TotalScore(@game, Hand, @first_leader_score, @second_leader_score, @third_leader_score, @fourth_leader_score))
+    print(calc.total_score(@game, Hand, @first_leader_score, @second_leader_score, @third_leader_score, @fourth_leader_score))
     print('####################')
 
     render "master"
