@@ -80,7 +80,10 @@ class StartController < ApplicationController
       kyoku = prev_kyoku
       honba = prev_honba
       # 連荘判定
-      is_able_to_move_to_next_kyoku = true
+      result = Result.find(prev_game.result_id)
+      hand_ids = [result.first_leader_hand_id, result.second_leader_hand_id, result.third_leader_hand_id, result.fourth_leader_hand_id]
+      current_leader_hand_id = hand_ids[prev_kyoku-1]
+      is_able_to_move_to_next_kyoku = Hand.find(current_leader_hand_id).tenpai ? false : true
 
       if is_able_to_move_to_next_kyoku # 連荘でないとき
         if "east" == prev_round 
