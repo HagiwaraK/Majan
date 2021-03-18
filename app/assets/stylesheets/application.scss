@@ -1,5 +1,12 @@
-@import "bootstrap";
+/////////////////////////////////////////////////////
+//////
+////      
+//             Initial functions                
+//                                              ////
+//                                            //////
+////////////////////////////////////////////////////
 
+@import "bootstrap";
 
 @mixin margin($t:0%, $r:0%, $b:0%, $l:0%) {
   margin: $t $r $b $l;
@@ -37,7 +44,30 @@
     border-right: medium solid $color;
   }
 }
+/////////////////////////////////////////////////////
 
+
+/////////////////////////////////////////////////////
+//////
+////      
+//                 Main body                
+//                                              ////
+//                                            //////
+////////////////////////////////////////////////////
+html, body {
+  height: 100%;
+  background-color: rgb(241, 241, 241);
+}
+/////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////
+//////
+////      
+//        Majan table and User status                
+//                                              ////
+//                                            //////
+////////////////////////////////////////////////////
 .main {
   @include margin();
   @include wh(100%, 93%);
@@ -49,9 +79,10 @@
   @include margin(1%, 1%, 1%, 1%);
   @include wh(40%, 60%);
   display: inline-block;
-  background-color: green;
+  background-color: rgb(13, 128, 0);
 }
 
+//////////////////  user1  //////////////////////////
 .user1 {
   @include margin(0%, 30%, 0%, 30%);
   @include wh(40%, 15%);
@@ -80,6 +111,7 @@
   display: inline-block;
 }
 
+//////////////////  user2  //////////////////////////
 .user2 {
   @include margin_top(1%, 0%, 0%, 15%);
   @include wh(10%, 60%);
@@ -125,6 +157,7 @@
   padding: 0%;
 }
 
+//////////////////  user3  //////////////////////////
 .user3 {
   @include margin(0%, 30%, 0%, 30%);
   @include wh(40%, 15%);
@@ -153,6 +186,8 @@
   display: inline-block;
 }
 
+
+//////////////////  user4  //////////////////////////
 .user4 {
   @include margin_top(1%, 15%, 0%, 0%);
   @include wh(10%, 60%);
@@ -198,6 +233,95 @@
   padding: 0%;
 }
 
-html, body {
-  height: 100%;
+//////////////////  options  //////////////////////////
+.leader {
+  background-color: rgba(191, 79, 19, 0.75);
+}
+
+/////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////
+//////
+////      
+//                Modal Windows               
+//                                              ////
+//                                            //////
+////////////////////////////////////////////////////
+// モーダルウィンドウ全体のレイアウト（画面いっぱいに表示）
+.c-modal {
+  @include margin();
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+// 黒背景の設定
+.c-modal_bg {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100%;
+}
+
+// ウィンドウの設定
+.c-modal_content {
+  background: #fff;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  width: 60%;
+}
+
+.c-modal_content_inner {
+  position: relative;
+  padding: 20px;
+}
+
+
+/////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////
+//////
+////      
+//             Accordion Windows               
+//                                              ////
+//                                            //////
+////////////////////////////////////////////////////
+.accordion {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.menu {
+  background-color: rgb(27, 6, 115);
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu:hover,
+.menu:active,
+.menu.is-active {
+  background-color: black;
+}
+
+.contents {
+  display: none;
+  border: 1px solid black;
+  padding: 10px;
+  line-height: normal;
+  height: auto;
+  opacity: 1;
+  text-align: center;
 }
