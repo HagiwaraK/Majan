@@ -50,6 +50,12 @@ class StartController < ApplicationController
     @third_leader_score = UserScore.find_by(user_id:@third_leader.id, half_round_id: @half_round.id)
     @fourth_leader_score = UserScore.find_by(user_id:@fourth_leader.id, half_round_id: @half_round.id)
     load_current_leader @game.kyoku
+
+    calc = Calculate.new()
+    print('####################')
+    print(calc.TotalScore(@game, Hand, @first_leader_score, @second_leader_score, @third_leader_score, @fourth_leader_score))
+    print('####################')
+
     render "master"
   end
 
