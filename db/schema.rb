@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_045659) do
+ActiveRecord::Schema.define(version: 2021_03_18_165705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_045659) do
     t.integer "half_round_id"
     t.integer "kyoku"
     t.integer "kyotaku"
+    t.integer "result_id"
   end
 
   create_table "half_rounds", force: :cascade do |t|
