@@ -17,4 +17,12 @@ class Hand < ApplicationRecord
 	def self.to_ja(column_name)
 		return column_name_and_jas[column_name]
 	end
+
+	def self.column_names_()
+		column_names = Array.new(Hand.column_names)
+		column_names.delete("id")
+		column_names.delete("created_at")
+		column_names.delete("updated_at")
+		return column_names
+	end
 end
