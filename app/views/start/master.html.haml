@@ -767,34 +767,34 @@
 %p=@fourth_leader_score.to_json
 
 -member = [@first_leader, @second_leader, @third_leader, @fourth_leader]
--member.each do |leader|
-  %span=leader.id 
-  %span=leader.name
-  %br
-    -Hand.column_names.each_with_index do |h, index|
-      - label = "#{leader.id}-#{h}"
-      - if h == 'value_tiles'
-        = select_tag label, options_for_select(value_tiles_num)
-        = label_tag label, Hand.to_ja(h)
-      - elsif h == 'dora' || h == 'red_dora' || h == 'ura_dora'
-        = select_tag label, options_for_select(dora_num)
-        = label_tag label, Hand.to_ja(h)
-      - elsif h == 'han'
-        = select_tag label, options_for_select(han_num)
-        = label_tag label, Hand.to_ja(h)
-      - elsif h == 'hu'
-        = select_tag label, options_for_select(hu_num)
-        = label_tag label, Hand.to_ja(h)
-      - elsif h == 'pon' || h =='chi' || h == 'ankan' || h =='kakan' || h == 'minkan'
-        = select_tag label, options_for_select(naki_num)
-        = label_tag label, Hand.to_ja(h)
-      - elsif h == 'id' || h == 'created_at' || h == 'updated_at'
-
-      - else
-        = check_box_tag label
-        = label_tag label, Hand.to_ja(h)
-  %br
 =form_tag("/start/next_game", :method=>:post, :onsubmit=>"return false;", class:"") do
+  -member.each do |leader|
+    %span=leader.id 
+    %span=leader.name
+    %br
+      -Hand.column_names.each_with_index do |h, index|
+        - label = "#{leader.id}-#{h}"
+        - if h == 'value_tiles'
+          = select_tag label, options_for_select(value_tiles_num)
+          = label_tag label, Hand.to_ja(h)
+        - elsif h == 'dora' || h == 'red_dora' || h == 'ura_dora'
+          = select_tag label, options_for_select(dora_num)
+          = label_tag label, Hand.to_ja(h)
+        - elsif h == 'han'
+          = select_tag label, options_for_select(han_num)
+          = label_tag label, Hand.to_ja(h)
+        - elsif h == 'hu'
+          = select_tag label, options_for_select(hu_num)
+          = label_tag label, Hand.to_ja(h)
+        - elsif h == 'pon' || h =='chi' || h == 'ankan' || h =='kakan' || h == 'minkan'
+          = select_tag label, options_for_select(naki_num)
+          = label_tag label, Hand.to_ja(h)
+        - elsif h == 'id' || h == 'created_at' || h == 'updated_at'
+
+        - else
+          = check_box_tag label
+          = label_tag label, Hand.to_ja(h)
+    %br
   = hidden_field_tag "half_round_id", @half_round.id
   = hidden_field_tag "game_id", @game.id
 

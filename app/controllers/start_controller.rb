@@ -106,16 +106,35 @@ class StartController < ApplicationController
     end
 
     def process_results prev_game
-      save_hands
+      first_leader_hand, second_leader_hand, third_leader_hand, fourth_leader_hand = save_hands
+      result = Result.new()
+      result.first_winner_user_id = params["first_winner"]
+      result.second_winner_user_id = params["second_winner"]
+      result.loser_user_id = params["loser"]
+      result.drawn_game = params["drawn_game"]
+      result.first_leader_hand_id = first_leader_hand.id
+      result.second_leader_hand_id = second_leader_hand.id
+      result.third_leader_hand_id = third_leader_hand.id
+      result.fourth_leader_hand_id = fourth_leader_hand.id
+      result.save!
+      prev_game.result_id = result.id
+      prev_game.save!
     end
 
     def save_hands
       leaders_id_list = [@first_leader.id, @second_leader.id, @third_leader.id, @fourth_leader.id]
-      print("============================")
-      print(leaders_id_list)
-      hand_column_names = Hand.column_names
-      print(hand_column_names)
-      print("============================")
+      first_leader_hand = Hand.new()
+      second_leader_hand = Hand.new()
+      third_leader_hand = Hand.new()
+      fourth_leader_hand = Hand.new()
+      hand_column_names = Hand.column_names_()
+      leaders_id_list.zip([first_leader_hand, second_leader_hand, third_leader_hand, fourth_leader_hand]) do |leader_id, hand|
+        hand_column_names.each do |hand_column_name|
+          hand[hand_column_name] = params[leader_id.to_s + "-" + hand_column_name]
+          hand.save!
+        end
+      end
+      return first_leader_hand, second_leader_hand, third_leader_hand, fourth_leader_hand
     end
 end
 
