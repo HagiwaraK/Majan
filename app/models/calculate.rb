@@ -29,6 +29,7 @@ class Calculate
 		get_reach_point
 		get_hanhu_point
 
+		#user1.point += 2000;
 		#kyotaku point += @points[0]
 		#user1 score += @points[1]
 		#user2 score += @points[2]

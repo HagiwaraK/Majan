@@ -58,6 +58,8 @@ html, body {
   height: 100%;
   background-color: rgb(241, 241, 241);
 }
+
+
 /////////////////////////////////////////////////////
 
 
@@ -280,10 +282,32 @@ html, body {
 }
 
 .c-modal_content_inner {
-  position: relative;
+  //position: relative;
+  @include wh(60%, 90%);
   padding: 20px;
+  display: inline-block;
 }
 
+.show_selection {
+  background: #000;
+  color: #fff;
+  //position: relative;
+  @include margin_top(20px);
+  @include wh(35%, 90%);
+  padding: 20px;
+  display: inline-block;
+}
+
+.show_selection_name {
+  @include margin_top();
+  @include wh(100%, 10%);
+
+}
+
+.show_selection_result {
+  @include margin_top();
+  @include wh(100%, auto);
+}
 
 /////////////////////////////////////////////////////
 
@@ -296,7 +320,7 @@ html, body {
 //                                            //////
 ////////////////////////////////////////////////////
 .accordion {
-  width: 500px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -308,6 +332,7 @@ html, body {
   text-align: center;
   cursor: pointer;
   user-select: none;
+  @include wh(100%, auto);
 }
 
 .menu:hover,
@@ -324,4 +349,8 @@ html, body {
   height: auto;
   opacity: 1;
   text-align: center;
+}
+
+.contents label{
+  white-space: nowrap;
 }
