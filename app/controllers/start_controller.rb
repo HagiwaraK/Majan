@@ -40,7 +40,7 @@ class StartController < ApplicationController
     get_players
     previous_game = Game.find(params[:game_id].to_i)
     process_results previous_game
-    round, kyoku, honba = get_current_r_k_h(previous_game)
+    result, round, kyoku, honba = get_current_r_k_h(previous_game)
     @game = Game.new(
       honba:honba, round:round, half_round_id: @half_round.id, kyoku: kyoku
       )
@@ -50,11 +50,12 @@ class StartController < ApplicationController
     @third_leader_score = UserScore.find_by(user_id:@third_leader.id, half_round_id: @half_round.id)
     @fourth_leader_score = UserScore.find_by(user_id:@fourth_leader.id, half_round_id: @half_round.id)
     load_current_leader @game.kyoku
-
+    
     calc = Calculate.new()
     print('####################')
-    print(calc.total_score(@game, Hand, @first_leader_score, @second_leader_score, @third_leader_score, @fourth_leader_score))
+    print(calc.total_score(result, @half_round, @game, @first_leader_score, @second_leader_score, @third_leader_score, @fourth_leader_score))
     print('####################')
+
 
     render "master"
   end
@@ -105,7 +106,7 @@ class StartController < ApplicationController
       else # 連荘のとき
         honba += 1
       end
-      return round, kyoku, honba
+      return result, round, kyoku, honba
     end
 
     def process_results prev_game

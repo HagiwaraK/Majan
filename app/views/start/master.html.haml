@@ -182,6 +182,7 @@
   ///////////////////  Main table //////////////////////
   .center
     %h1="#{round}#{@game.kyoku}局#{@game.honba}本場"
+    %h1="供託：　#{@game.kyotaku}"
     %h3="親: #{@current_leader.name}"
   
   ///////////////////  User4 //////////////////////
@@ -404,6 +405,7 @@
 %p=@fourth_leader.to_json
 %p=@half_round.to_json
 %p=@game.to_json
+%p=@result.to_json
 %p=@first_leader_score.to_json
 %p=@second_leader_score.to_json
 %p=@third_leader_score.to_json
