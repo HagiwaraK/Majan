@@ -1,6 +1,8 @@
 class Calculate
 	def initialize
 		@points = [0, 0, 0, 0, 0]
+		@chips = [0, 0, 0, 0, 0]
+
 		@oya_person = 0
 		@agari_person1 = 0
 		@agari_person2 = 0
@@ -14,61 +16,93 @@ class Calculate
 		@agari_hand = []
 	end
 
-	def total_score result, round, game, user1, user2, user3, user4
+	def total_score game, half_round, result, first_leader_score, second_leader_score, third_leader_score, fourth_leader_score	
+		@leaders_id = [-1, half_round.first_leader_user_id, half_round.second_leader_user_id, half_round.third_leader_user_id, half_round.fourth_leader_user_id]
+		@leaders_hand = [-1, result.first_leader_hand_id, result.second_leader_hand_id, result.third_leader_hand_id, result.fourth_leader_hand_id]
+		@first_winner_id = result.first_winner_user_id
+		@second_winner_id = result.second_winner_user_id
+		@loser_id = result.loser_user_id
+
 		@oya_person = game.kyoku
 
-		@agari_person1 = 1 if (round.first_leader_user_id == result.first_winner_user_id)
-		@agari_person1 = 2 if (round.second_leader_user_id == result.first_winner_user_id)
-		@agari_person1 = 3 if (round.third_leader_user_id == result.first_winner_user_id)
-		@agari_person1 = 4 if (round.fourth_leader_user_id == result.first_winner_user_id)
+		for num in 1..4 do
+			@agari_person1 = num if (@leaders_id[num] == @first_winner_id)
+			@agari_person2 = num if (@leaders_id[num] == @second_winner_id)
+			@furikomi_person = num if (@leaders_id[num] == @loser_id)
 
-		@agari_person2 = 1 if (round.first_leader_user_id == result.second_winner_user_id)
-		@agari_person2 = 2 if (round.second_leader_user_id == result.second_winner_user_id)
-		@agari_person2 = 3 if (round.third_leader_user_id == result.second_winner_user_id)
-		@agari_person2 = 4 if (round.fourth_leader_user_id == result.second_winner_user_id)
+			@tumo_flag = true if (Hand.find(@leaders_hand[num]).self_draw == true)
+		end
 
-		@agari_hand_id = [-1, result.first_leader_hand_id, result.second_leader_hand_id, result.third_leader_hand_id, result.fourth_leader_hand_id]
-
-		@furikomi_person = 1 if (round.first_leader_user_id == result.loser_user_id)
-		@furikomi_person = 2 if (round.second_leader_user_id == result.loser_user_id)
-		@furikomi_person = 3 if (round.third_leader_user_id == result.loser_user_id)
-		@furikomi_person = 4 if (round.fourth_leader_user_id == result.loser_user_id)
-
-		@drawn_flag = true if (result.drawn_game == true)
-		
-		@tumo_flag = true if (Hand.find(result.first_leader_hand_id).self_draw == true)
-		@tumo_flag = true if (Hand.find(result.second_leader_hand_id).self_draw == true)
-		@tumo_flag = true if (Hand.find(result.third_leader_hand_id).self_draw == true)
-		@tumo_flag = true if (Hand.find(result.fourth_leader_hand_id).self_draw == true)
-		
+		@drawn_flag = true if (result.drawn_game == true)	
 		@ron_flag = true if (@furikomi_person != 0)
 		
 		if (@agari_person2 != 0) 
 			@ron_flag = false
 			@double_ron_flag = true
 		end
-		print('-----flag--->')
-		print(@tumo_flag, @ron_flag, @double_ron_flag)
 
-		game.kyotaku = 0 if (game.kyotaku==nil)
 		get_honba_point game
 		get_kyotaku_point game
-		get_reach_point result
-		get_hanhu_point result
-
+		get_reach_point
+		get_hanhu_point
+		get_chip
 
 		game.kyotaku += @points[0]
-		user1.point += @points[1]
-		user2.point += @points[2]
-		user3.point += @points[3]
-		user4.point += @points[4]
+		first_leader_score.point += @points[1]
+		second_leader_score.point += @points[2]
+		third_leader_score.point += @points[3]
+		fourth_leader_score.point += @points[4]
 
+		first_leader_score.chip += @chips[1]
+		second_leader_score.chip += @chips[2]
+		third_leader_score.chip += @chips[3]
+		fourth_leader_score.chip += @chips[4]
 
 	end
 
 	private
+		def get_chip
+			if @tumo_flag then
+				red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
+				ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
+				first_turn_win1 = 0
+				first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
+				red_dora_num1 = 5 if (red_dora_num1 == 3)
+				total_chip = red_dora_num1 + ura_dora_num1 + first_turn_win1
+				@chips[1] += -total_chip
+				@chips[2] += -total_chip
+				@chips[3] += -total_chip
+				@chips[4] += -total_chip
+				@chips[@agari_person1] += 4*total_chip
+			elsif @ron_flag then
+				red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
+				ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
+				first_turn_win1 = 0
+				first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
+				red_dora_num1 = 10 if (red_dora_num1 == 3)
+				total_chip = red_dora_num1 + ura_dora_num1 + first_turn_win1
+				@chips[@furikomi_person] += -total_chip
+				@chips[@agari_person1] += total_chip
+			elsif @double_ron_flag then
+				red_dora_num2 = Hand.find(@leaders_hand[@agari_person2]).red_dora
+				ura_dora_num2 = Hand.find(@leaders_hand[@afari_person2]).ura_dora
+				first_turn_win2 = 0
+				first_turn_win2 = 1 if (Hand.find(@leaders_hand[@agari_person2]).first_turn_win == true)
+				
+				red_dora_num1 = 10 if (red_dora_num1 == 3)
+				total_chip1 = red_dora_num1 + ura_dora_num1 + first_turn_win1
+				red_dora_num2 = 10 if (red_dora_num2 == 3)
+				total_chip2 = red_dora_num2 + ura_dora_num2 + first_turn_win2
+				@chips[@furikomi_person] += -total_chip1-total_chip2
+				@chips[@agari_person1] += total_chip1
+				@chips[@agari_person2] += total_chip2
+			end
+
+
+		end
+
 		def get_honba_point game
-			honba = game.honba-1
+			honba = game.honba
 			if @tumo_flag then
 				@points[1] += -100*honba
 				@points[2] += -100*honba
@@ -83,8 +117,6 @@ class Calculate
 				@points[@agari_person2] += 300*honba
 				@points[@furikomi_person] += -600*honba
 			end
-			print('----get_honbba_point---->')
-			print(@points)
 		end
 
 		def get_kyotaku_point game
@@ -97,19 +129,16 @@ class Calculate
 				@points[@agari_person2] += kyotaku/2
 				@points[0] += -kyotaku
 			elsif @drawn_flag then
-				@points[0] += kyotaku
+				@points[0] += 0
 			end
-			print('---get_kyotaku_point--->')
-			print(@points)
 		end
 
-		def get_reach_point result
+		def get_reach_point
 			reach_persons = []
-			reach_persons.push 1 if (Hand.find(result.first_leader_hand_id).reach == true)
-			reach_persons.push 2 if (Hand.find(result.second_leader_hand_id).reach == true)
-			reach_persons.push 3 if (Hand.find(result.third_leader_hand_id).reach == true)
-			reach_persons.push 4 if (Hand.find(result.fourth_leader_hand_id).reach == true)
-
+			for num in 1..4 do
+				reach_persons.push num if (Hand.find(@leaders_hand[num]).reach == true)
+			end
+			
 			reach_stick = reach_persons.size
 			for reach_person in reach_persons do
 				@points[reach_person] += -1000
@@ -124,17 +153,13 @@ class Calculate
 				@points[0] += 1000*reach_stick
 			end
 
-			print('---get_reach_point-->')
-			print(@points)
 		end
 
 
-		def get_hanhu_point result
+		def get_hanhu_point
 			if @ron_flag or @tumo_flag then
-				han1 = Hand.find(@agari_hand_id[@agari_person1]).han
-				hu1 = Hand.find(@agari_hand_id[@agari_person1]).hu
-				print('---get_hahu11------>')
-				print(@agari_person, @oya_person)
+				han1 = Hand.find(@leaders_hand[@agari_person1]).han
+				hu1 = Hand.find(@leaders_hand[@agari_person1]).hu
 				if @agari_person1 == @oya_person then
 					oya_tumo(han1, hu1, @agari_person1) if @tumo_flag
 					oya_ron(han1, hu1, @agari_person1) if @ron_flag
@@ -143,10 +168,10 @@ class Calculate
 					ko_ron(han1, hu1, @agari_person1) if @ron_flag
 				end
 			elsif @double_ron_flag then
-				han1 = Hand.find(@agari_hand_id[@agari_person1]).han
-				hu1 = Hand.find(@agari_hand_id[@agari_person1]).hu
-				han2 = Hand.find(@agari_hand_id[@agari_person2]).han
-				hu2 = Hand.find(@agari_hand_id[@agari_person2]).hu
+				han1 = Hand.find(@leaders_hand[@agari_person1]).han
+				hu1 = Hand.find(@leaders_hand[@agari_person1]).hu
+				han2 = Hand.find(@leaders_hand[@agari_person2]).han
+				hu2 = Hand.find(@leaders_hand[@agari_person2]).hu
 				
 				if @agari_person1 == @oya_person then
 					oya_tumo(han1, hu1, @agari_person1) if @tumo_flag
@@ -164,15 +189,11 @@ class Calculate
 				end
 			elsif @drawn_flag then
 				#break
-			end
-			print('--get_hanhu-->')
-			print(@points)
-			
+			end			
 		end
 
 
 		def oya_tumo han, hu, agari
-			print('----------oya-tumo-----------')
 			point = 0
 			if han==1 then
 				point = 0 if hu==20 or hu==25
@@ -231,13 +252,10 @@ class Calculate
 			@points[3] += -point
 			@points[4] += -point
 			@points[agari] += 4*point 
-			print('--oya_tumo-->')
-			print(@points)
 		end
 
 
 		def oya_ron han, hu, agari
-			print('----------oya-ron-----------')
 			point = 0
 			if han==1 then
 				point = 0 if hu==20 or hu==25
@@ -350,13 +368,13 @@ class Calculate
 				point = [48000, 24000]
 			end
 
-			@points[1] += -point[0]
-			@points[2] += -point[0]
-			@points[3] += -point[0]
-			@points[4] += -point[0]
+			@points[1] += -point[1]
+			@points[2] += -point[1]
+			@points[3] += -point[1]
+			@points[4] += -point[1]
 
-			@points[@oya_person] += point[0]-point[1]
-			@points[agari] += 3*point[0]+point[1]
+			@points[@oya_person] += point[1]-point[0]
+			@points[agari] += 3*point[1]+point[0]
 		end
 
 		def ko_ron han, hu, agari
