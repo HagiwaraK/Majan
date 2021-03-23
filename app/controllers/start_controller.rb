@@ -60,9 +60,7 @@ class StartController < ApplicationController
       honba:honba, round:round, half_round_id: @half_round.id, kyoku: kyoku, kyotaku:kyotaku
       )
     @game.save!
-
     load_current_leader @game.kyoku
-
 
     render "master"
   end

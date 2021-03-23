@@ -12,13 +12,13 @@ class Calculate
 		@tumo_flag = false
 		@double_ron_flag = false
 		@drawn_flag = false
-
-		@agari_hand = []
 	end
+
 
 	def total_score game, half_round, result, first_leader_score, second_leader_score, third_leader_score, fourth_leader_score	
 		@leaders_id = [-1, half_round.first_leader_user_id, half_round.second_leader_user_id, half_round.third_leader_user_id, half_round.fourth_leader_user_id]
 		@leaders_hand = [-1, result.first_leader_hand_id, result.second_leader_hand_id, result.third_leader_hand_id, result.fourth_leader_hand_id]
+		@leaders_score = [-1, first_leader_score, second_leader_score, third_leader_score, fourth_leader_score]
 		@first_winner_id = result.first_winner_user_id
 		@second_winner_id = result.second_winner_user_id
 		@loser_id = result.loser_user_id
@@ -48,58 +48,110 @@ class Calculate
 		get_chip
 
 		game.kyotaku += @points[0]
-		first_leader_score.point += @points[1]
-		second_leader_score.point += @points[2]
-		third_leader_score.point += @points[3]
-		fourth_leader_score.point += @points[4]
-
-		first_leader_score.chip += @chips[1]
-		second_leader_score.chip += @chips[2]
-		third_leader_score.chip += @chips[3]
-		fourth_leader_score.chip += @chips[4]
+		for num in 1..4 do
+			@leaders_score[num].point += @points[num]
+			@leaders_score[num].chip += @chips[num]
+		end
 
 	end
 
 	private
+		def yakuman_flag agari
+			if @drawn_flag
+				return false
+			else
+				if Hand.find(@leaders_hand[agari]).thirteen_orphans or \
+					Hand.find(@leaders_hand[agari]).four_concealed_triples or \
+					Hand.find(@leaders_hand[agari]).four_continuous_triples or \
+					Hand.find(@leaders_hand[agari]).four_quads or \
+					Hand.find(@leaders_hand[agari]).small_four_winds or \
+					Hand.find(@leaders_hand[agari]).big_dragons or \
+					Hand.find(@leaders_hand[agari]).all_honors or \
+					Hand.find(@leaders_hand[agari]).all_terminals or \
+					Hand.find(@leaders_hand[agari]).all_green or \
+					Hand.find(@leaders_hand[agari]).nine_gates or \
+					Hand.find(@leaders_hand[agari]).blessing_of_earth or \
+					Hand.find(@leaders_hand[agari]).blessing_of_person or \
+					Hand.find(@leaders_hand[agari]).blessing_of_heaven or \
+					Hand.find(@leaders_hand[agari]).all_waitting_thirteen_orphans or \
+					Hand.find(@leaders_hand[agari]).suttan or \
+					Hand.find(@leaders_hand[agari]).big_four_winds or \
+					Hand.find(@leaders_hand[agari]).pure_nine_gates then
+						return true;
+				end
+			end
+		end
+
+
 		def get_chip
 			if @tumo_flag then
-				red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
-				ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
-				first_turn_win1 = 0
-				first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
-				red_dora_num1 = 5 if (red_dora_num1 == 3)
-				total_chip = red_dora_num1 + ura_dora_num1 + first_turn_win1
-				@chips[1] += -total_chip
-				@chips[2] += -total_chip
-				@chips[3] += -total_chip
-				@chips[4] += -total_chip
-				@chips[@agari_person1] += 4*total_chip
+				if (yakuman_flag(@agari_person1)) then
+					total_chip = 10
+					@chips[1] += -total_chip
+					@chips[2] += -total_chip
+					@chips[3] += -total_chip
+					@chips[4] += -total_chip
+					@chips[@agari_person1] += 4*total_chip
+				else
+					red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
+					ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
+					first_turn_win1 = 0
+					first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
+					red_dora_num1 = 5 if (red_dora_num1 == 3)
+					total_chip = red_dora_num1 + ura_dora_num1 + first_turn_win1
+					@chips[1] += -total_chip
+					@chips[2] += -total_chip
+					@chips[3] += -total_chip
+					@chips[4] += -total_chip
+					@chips[@agari_person1] += 4*total_chip
+				end
 			elsif @ron_flag then
-				red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
-				ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
-				first_turn_win1 = 0
-				first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
-				red_dora_num1 = 10 if (red_dora_num1 == 3)
-				total_chip = red_dora_num1 + ura_dora_num1 + first_turn_win1
-				@chips[@furikomi_person] += -total_chip
-				@chips[@agari_person1] += total_chip
+				if (yakuman_flag(@agari_person1)) then
+					total_chip = 20
+					@chips[@furikomi_person] += -total_chip
+					@chips[@agari_person1] += total_chip
+				else
+					red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
+					ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
+					first_turn_win1 = 0
+					first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
+					red_dora_num1 = 10 if (red_dora_num1 == 3)
+					total_chip = red_dora_num1 + ura_dora_num1 + first_turn_win1
+					@chips[@furikomi_person] += -total_chip
+					@chips[@agari_person1] += total_chip
+				end
 			elsif @double_ron_flag then
-				red_dora_num2 = Hand.find(@leaders_hand[@agari_person2]).red_dora
-				ura_dora_num2 = Hand.find(@leaders_hand[@afari_person2]).ura_dora
-				first_turn_win2 = 0
-				first_turn_win2 = 1 if (Hand.find(@leaders_hand[@agari_person2]).first_turn_win == true)
-				
-				red_dora_num1 = 10 if (red_dora_num1 == 3)
-				total_chip1 = red_dora_num1 + ura_dora_num1 + first_turn_win1
-				red_dora_num2 = 10 if (red_dora_num2 == 3)
-				total_chip2 = red_dora_num2 + ura_dora_num2 + first_turn_win2
-				@chips[@furikomi_person] += -total_chip1-total_chip2
-				@chips[@agari_person1] += total_chip1
-				@chips[@agari_person2] += total_chip2
+				if (yakuman_flag(@agari_person1)) then
+					total_chip = 20
+					@chips[@furikomi_person] += -total_chip
+					@chips[@agari_person1] += total_chip
+				else
+					red_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).red_dora
+					ura_dora_num1 = Hand.find(@leaders_hand[@agari_person1]).ura_dora
+					first_turn_win1 = 0
+					first_turn_win1 = 1 if (Hand.find(@leaders_hand[@agari_person1]).first_turn_win == true)
+					red_dora_num1 = 10 if (red_dora_num1 == 3)
+					total_chip1 = red_dora_num1 + ura_dora_num1 + first_turn_win1
+					@chips[@furikomi_person] += -total_chip1
+					@chips[@agari_person1] += total_chip1
+				end
+
+				if (yakuman_flag(@agari_person2)) then
+					total_chip = 20
+					@chips[@furikomi_person] += -total_chip
+					@chips[@agari_person2] += total_chip
+				else
+					red_dora_num2 = Hand.find(@leaders_hand[@agari_person2]).red_dora
+					ura_dora_num2 = Hand.find(@leaders_hand[@afari_person2]).ura_dora
+					first_turn_win2 = 0
+					first_turn_win2 = 1 if (Hand.find(@leaders_hand[@agari_person2]).first_turn_win == true)
+					total_chip2 = red_dora_num2 + ura_dora_num2 + first_turn_win2
+					@chips[@furikomi_person] += -total_chip2
+					@chips[@agari_person2] += total_chip2
+				end
 			end
-
-
 		end
+
 
 		def get_honba_point game
 			honba = game.honba
