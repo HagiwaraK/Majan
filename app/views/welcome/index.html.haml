@@ -6,4 +6,6 @@
 			=names[1]
 			=select_tag names[0], options_for_select(user_name_options)
 	=button_tag "対局", :type=>"button", :onclick=>"submit()", :class=>"btn btn-secondary"
+	
+=form_tag("/result/show", :method=>:get) do
 	=button_tag "データ", class:"btn btn-info"

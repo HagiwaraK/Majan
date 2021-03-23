@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'result/show'
   get 'welcome/index'
   post 'start/master' => 'start#master'
   post 'start/next_game' => 'start#next_game'
