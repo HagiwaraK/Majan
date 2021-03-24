@@ -1,0 +1,47 @@
+%h1 対局結果
+
+%table
+  %tr
+    %th 名前
+    %th 持ち点
+    %th チップ
+    %th ウマオカ
+    %th ポイント
+  %tr
+    %td=@first_leader.name
+    %td=@first_leader_score.point
+    %td=@first_leader_score.chip
+    %td 20
+    %td 100
+  %tr
+    %td=@second_leader.name
+    %td=@second_leader_score.point
+    %td=@second_leader_score.chip
+    %td 10
+    %td -10
+  %tr
+    %td=@third_leader.name
+    %td=@third_leader_score.point
+    %td=@third_leader_score.chip
+    %td -10
+    %td -40
+  %tr
+    %td=@fourth_leader.name
+    %td=@fourth_leader_score.point
+    %td=@fourth_leader_score.chip
+    %td -20
+    %td -50
+
+%p=@first_leader.to_json
+%p=@second_leader.to_json
+%p=@third_leader.to_json
+%p=@fourth_leader.to_json
+
+%p=@first_leader_score.to_json
+%p=@second_leader_score.to_json
+%p=@third_leader_score.to_json
+%p=@fourth_leader_score.to_json
+
+
+
+
